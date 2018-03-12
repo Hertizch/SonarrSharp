@@ -1,5 +1,5 @@
 # SonarrSharp
-C# Sonarr API wrapper. Still in a beta phase.
+C# Sonarr API wrapper. Still in a beta phase, all methods and properties are subject to change.
 
 ## Installation
 Available as a NuGet package:
