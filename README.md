@@ -1,10 +1,14 @@
 # SonarrSharp
 C# Sonarr API wrapper
 
+## Installation
 Available as a NuGet package:
 ```
 PM> Install-Package SonarrSharp
 ```
+
+## Compatability
+.NET framework, .NET core and Xamarin
 
 ## Usage
 These are some examples on how to use the API. All methods are async/awaitable.
