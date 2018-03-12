@@ -1,5 +1,5 @@
 # SonarrSharp
-C# Sonarr API wrapper
+C# Sonarr API wrapper. Still in a beta phase.
 
 ## Installation
 Available as a NuGet package:
@@ -7,7 +7,7 @@ Available as a NuGet package:
 PM> Install-Package SonarrSharp
 ```
 
-## Compatability
+## Compatibility
 .NET framework, .NET core and Xamarin
 
 ## Usage
