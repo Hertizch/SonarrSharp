@@ -1,6 +1,11 @@
 # SonarrSharp
 C# Sonarr API wrapper
 
+Available as a NuGet package:
+```
+PM> Install-Package SonarrSharp
+```
+
 ## Usage
 These are some examples on how to use the API. All methods are async/awaitable.
 
