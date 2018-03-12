@@ -15,7 +15,7 @@ var sonarrClient = new SonarrClient("127.0.0.1", 8989, "apiKey");
 ```
 
 Get all series
-```
+```c#
 var series = await sonarrClient.Series.GetSeries();
 foreach (var serie in series)
 {
