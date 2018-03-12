@@ -10,7 +10,7 @@ PM> Install-Package SonarrSharp
 These are some examples on how to use the API. All methods are async/awaitable.
 
 Create the client
-```
+```c#
 var sonarrClient = new SonarrClient("127.0.0.1", 8989, "apiKey");
 ```
 
@@ -24,7 +24,7 @@ foreach (var serie in series)
 ```
 
 Search for all episodes in a series
-```
+```c#
 var command = await.sonarrClient.SeriesSearch(123);
 
 // Get status of command
