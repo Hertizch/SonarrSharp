@@ -17,3 +17,11 @@ foreach (var serie in series)
     Console.WriteLine($"{serie.Title}");
 }
 ```
+
+Search for all episodes in a series
+```
+var command = await.sonarrClient.SeriesSearch(123);
+
+// Get status of command
+Console.WriteLine($"{command.Name}: {command.State}");
+```
