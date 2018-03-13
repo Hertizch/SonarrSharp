@@ -71,6 +71,7 @@ namespace SonarrSharp
             SystemStatus = new SystemStatus(this);
             SystemBackup = new SystemBackup(this);
 
+            //
             Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient] Log file location set to {LogFilename}");
         }
 
