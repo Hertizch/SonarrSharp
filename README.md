@@ -13,12 +13,12 @@ PM> Install-Package SonarrSharp
 ## Usage
 These are some examples on how to use the API. All methods are async/awaitable. Most methods includes help text on what they do. If you need more information on how the various endpoints works, visit https://github.com/Sonarr/Sonarr/wiki/API.
 
-Create the client
+Create the client:
 ```c#
 var sonarrClient = new SonarrClient("127.0.0.1", 8989, "apiKey");
 ```
 
-Get all series
+Get all series:
 ```c#
 var series = await sonarrClient.Series.GetSeries();
 foreach (var serie in series)
@@ -27,7 +27,7 @@ foreach (var serie in series)
 }
 ```
 
-Search for all episodes in a series
+Search for all episodes in a series:
 ```c#
 var command = await.sonarrClient.SeriesSearch(123);
 
