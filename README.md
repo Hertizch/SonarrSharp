@@ -41,3 +41,6 @@ Console.WriteLine($"{command.Name}: {command.State}");
 - Included XML documentation file
 - Updated lots of summary texts on methods and properties
 - Removed unnecessary Usings
+
+### March 19, 2018 #2
+- Updated endpoint client summaries
