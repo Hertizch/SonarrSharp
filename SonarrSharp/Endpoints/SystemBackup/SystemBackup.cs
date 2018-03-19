@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.SystemBackup
 {
     /// <summary>
-    /// 
+    /// SystemBackup endpoint client
     /// </summary>
     public class SystemBackup : ISystemBackup
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="SystemBackup"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public SystemBackup(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

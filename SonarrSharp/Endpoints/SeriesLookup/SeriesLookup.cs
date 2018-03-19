@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.SeriesLookup
 {
     /// <summary>
-    /// 
+    /// SeriesLookup endpoint client
     /// </summary>
     public class SeriesLookup : ISeriesLookup
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="SeriesLookup"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public SeriesLookup(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

@@ -8,23 +8,23 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.ReleasePush
 {
     /// <summary>
-    /// 
+    /// ReleasePush endpoint client
     /// </summary>
     public class ReleasePush : IReleasePush
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="ReleasePush"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public ReleasePush(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
         }
 
         /// <summary>
-        /// 
+        /// No description
         /// </summary>
         /// <param name="title"></param>
         /// <param name="downloadUrl"></param>

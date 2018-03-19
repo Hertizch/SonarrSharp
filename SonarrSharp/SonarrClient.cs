@@ -29,20 +29,20 @@ using System.Threading.Tasks;
 namespace SonarrSharp
 {
     /// <summary>
-    /// 
+    /// SonarrClient
     /// </summary>
     public class SonarrClient
     {
         private WebClient _webClient;
 
         /// <summary>
-        /// Creates the API client to communicate with Sonarr service
+        /// Initializes a new instance of the <see cref="SonarrClient"/> class.
         /// </summary>
-        /// <param name="host">Client hostname or IP address</param>
-        /// <param name="port">Client port</param>
-        /// <param name="apiKey">Client API key</param>
-        /// <param name="urlBase">Url base for reverse proxy support</param>
-        /// <param name="useSsl">Communicate with client securely</param>
+        /// <param name="host">The host.</param>
+        /// <param name="port">The port.</param>
+        /// <param name="apiKey">The API key.</param>
+        /// <param name="urlBase">The URL base.</param>
+        /// <param name="useSsl">if set to <c>true</c> [use SSL].</param>
         public SonarrClient(string host, int port, string apiKey, [Optional] string urlBase, [Optional] bool useSsl)
         {
             // Initialize properties
@@ -144,7 +144,7 @@ namespace SonarrSharp
         public IEpisode Episode { get; }
 
         /// <summary>
-        /// Episode File endpoint client
+        /// EpisodeFile endpoint client
         /// </summary>
         public IEpisodeFile EpisodeFile { get; }
 
@@ -154,7 +154,7 @@ namespace SonarrSharp
         public IHistory History { get; }
 
         /// <summary>
-        /// Wnated/Missing endpoint client
+        /// WnatedMissing endpoint client
         /// </summary>
         public IWantedMissing WantedMissing { get; }
 
@@ -179,12 +179,12 @@ namespace SonarrSharp
         public IRelease Release { get; }
 
         /// <summary>
-        /// Release/Push endpoint client
+        /// ReleasePush endpoint client
         /// </summary>
         public IReleasePush ReleasePush { get; }
 
         /// <summary>
-        /// Root Folder endpoint client
+        /// RootFolder endpoint client
         /// </summary>
         public IRootfolder Rootfolder { get; }
 
@@ -194,17 +194,17 @@ namespace SonarrSharp
         public ISeries Series { get; }
 
         /// <summary>
-        /// Series Lookup endpoint client
+        /// SeriesLookup endpoint client
         /// </summary>
         public ISeriesLookup SeriesLookup { get; }
 
         /// <summary>
-        /// System Status endpoint client
+        /// SystemStatus endpoint client
         /// </summary>
         public ISystemStatus SystemStatus { get; }
 
         /// <summary>
-        /// System Backup endpoint client
+        /// SystemBackup endpoint client
         /// </summary>
         public ISystemBackup SystemBackup { get; }
 

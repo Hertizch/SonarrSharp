@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Calendar
 {
     /// <summary>
-    /// 
+    /// Calendar endpoint client
     /// </summary>
     public class Calendar : ICalendar
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Calendar"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Calendar(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

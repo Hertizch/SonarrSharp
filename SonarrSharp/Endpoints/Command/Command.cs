@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -8,16 +7,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Command
 {
     /// <summary>
-    /// 
+    /// Command endpoint client
     /// </summary>
     public class Command : ICommand
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Command"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Command(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
@@ -76,8 +75,8 @@ namespace SonarrSharp.Endpoints.Command
         /// <summary>
         /// Refresh rescan disk for a single series. If seriesId not set all series will be scanned
         /// </summary>
-        /// <param name="seriesId"></param>
-        /// <returns></returns>
+        /// <param name="seriesId">Series ID</param>
+        /// <returns>Data.Command</returns>
         public async Task<Data.Command> RescanSeries([Optional] int seriesId)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
@@ -115,12 +114,7 @@ namespace SonarrSharp.Endpoints.Command
             return null;
         }
 
-        /// <summary>
-        /// Search for all episodes of a particular season
-        /// </summary>
-        /// <param name="seriesId">Series ID</param>
-        /// <param name="seasonNumber">Season number</param>
-        /// <returns>Data.Command</returns>
+        /// <inheritdoc/>
         public async Task<Data.Command> SeasonSearch(int seriesId, int seasonNumber)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
@@ -157,15 +151,6 @@ namespace SonarrSharp.Endpoints.Command
                 return JsonConvert.DeserializeObject<Data.Command>(json, JsonHelpers.SerializerSettings);
 
             return null;
-        }
-
-        /// <summary>
-        /// Deprecated
-        /// </summary>
-        /// <returns>Data.Command</returns>
-        public Data.Command DownloadedEpisodesScan()
-        {
-            throw new NotImplementedException("This API call is deprecated and should not be used");
         }
 
         /// <summary>

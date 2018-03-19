@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.EpisodeFile
 {
+    /// <summary>
+    /// EpisodeFile endpoint client
+    /// </summary>
     class EpisodeFile : IEpisodeFile
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EpisodeFile"/> class.
+        /// </summary>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public EpisodeFile(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

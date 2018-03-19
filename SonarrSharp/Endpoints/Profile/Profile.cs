@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Profile
 {
     /// <summary>
-    /// 
+    /// Profile endpoint client
     /// </summary>
     public class Profile : IProfile
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Profile"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Profile(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

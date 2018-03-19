@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.SystemStatus
 {
     /// <summary>
-    /// 
+    /// SystemStatus endpoint client
     /// </summary>
     public class SystemStatus : ISystemStatus
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="SystemStatus"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public SystemStatus(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

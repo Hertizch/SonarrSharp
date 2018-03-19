@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Rootfolder
 {
     /// <summary>
-    /// 
+    /// Rootfolder endpoint client
     /// </summary>
     public class Rootfolder : IRootfolder
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Rootfolder"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Rootfolder(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

@@ -3,14 +3,14 @@
 namespace SonarrSharp.Endpoints.SystemBackup
 {
     /// <summary>
-    /// 
+    /// SystemBackup endpoint client
     /// </summary>
     public interface ISystemBackup
     {
         /// <summary>
-        /// 
+        /// Returns the list of available backups
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Data.SystemBackup[]</returns>
         Task<Data.SystemBackup[]> GetSystemBackups();
     }
 }

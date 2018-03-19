@@ -5,16 +5,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Parse
 {
     /// <summary>
-    /// 
+    /// Parse endpoint client
     /// </summary>
     public class Parse : IParse
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Parse"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Parse(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

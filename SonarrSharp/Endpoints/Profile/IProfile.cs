@@ -3,14 +3,14 @@
 namespace SonarrSharp.Endpoints.Profile
 {
     /// <summary>
-    /// 
+    /// Profile endpoint client
     /// </summary>
     public interface IProfile
     {
         /// <summary>
-        /// 
+        /// Gets all quality profiles
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Data.Profile[]</returns>
         Task<Data.Profile[]> GetProfiles();
     }
 }

@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.WantedMissing
 {
     /// <summary>
-    /// 
+    /// WantedMissing endpoint client
     /// </summary>
     public class WantedMissing : IWantedMissing
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="WantedMissing"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public WantedMissing(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

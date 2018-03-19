@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.History
 {
     /// <summary>
-    /// 
+    /// History endpoint client
     /// </summary>
     public class History : IHistory
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="History"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public History(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

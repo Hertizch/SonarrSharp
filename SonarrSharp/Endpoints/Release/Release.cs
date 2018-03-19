@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Release
 {
     /// <summary>
-    /// 
+    /// Release endpoint client
     /// </summary>
     public class Release : IRelease
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Release"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Release(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

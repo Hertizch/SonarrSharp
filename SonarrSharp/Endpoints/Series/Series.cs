@@ -8,16 +8,16 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Series
 {
     /// <summary>
-    /// 
+    /// Series endpoint client
     /// </summary>
     public class Series : ISeries
     {
         private SonarrClient _sonarrClient;
 
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="Series"/> class.
         /// </summary>
-        /// <param name="sonarrClient"></param>
+        /// <param name="sonarrClient">The sonarr client.</param>
         public Series(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
