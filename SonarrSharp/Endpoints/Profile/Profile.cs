@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Profile
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Profile : IProfile
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Profile(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.WantedMissing
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WantedMissing : IWantedMissing
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public WantedMissing(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

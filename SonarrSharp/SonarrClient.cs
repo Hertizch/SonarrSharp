@@ -28,6 +28,9 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SonarrClient
     {
         private WebClient _webClient;
@@ -71,8 +74,8 @@ namespace SonarrSharp
             SystemStatus = new SystemStatus(this);
             SystemBackup = new SystemBackup(this);
 
-            //
-            Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient] Log file location set to {LogFilename}");
+            if (WriteLogToFile)
+                Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient] Log file location set to {LogFilename}");
         }
 
         /// <summary>
@@ -106,7 +109,7 @@ namespace SonarrSharp
         internal string ApiUrl { get; private set; }
 
         /// <summary>
-        /// Write log information to file - defaults to false
+        /// (NOT YET USED) Write log information to file - defaults to false
         /// </summary>
         public bool WriteLogToFile { get; set; }
 
@@ -120,22 +123,89 @@ namespace SonarrSharp
         /// </summary>
         public bool VerboseLogging { get; set; }
 
+        /// <summary>
+        /// Calendar endpoint client
+        /// </summary>
         public ICalendar Calendar { get; }
+
+        /// <summary>
+        /// Command endpoint client
+        /// </summary>
         public ICommand Command { get; }
+
+        /// <summary>
+        /// Diskspace endpoint client
+        /// </summary>
         public IDiskspace Diskspace { get; }
+
+        /// <summary>
+        /// Episode endpoint client
+        /// </summary>
         public IEpisode Episode { get; }
+
+        /// <summary>
+        /// Episode File endpoint client
+        /// </summary>
         public IEpisodeFile EpisodeFile { get; }
+
+        /// <summary>
+        /// History endpoint client
+        /// </summary>
         public IHistory History { get; }
+
+        /// <summary>
+        /// Wnated/Missing endpoint client
+        /// </summary>
         public IWantedMissing WantedMissing { get; }
+
+        /// <summary>
+        /// Queue endpoint client
+        /// </summary>
         public IQueue Queue { get; }
+
+        /// <summary>
+        /// Parse endpoint client
+        /// </summary>
         public IParse Parse { get; }
+
+        /// <summary>
+        /// Profile endpoint client
+        /// </summary>
         public IProfile Profile { get; }
+
+        /// <summary>
+        /// Release endpoint client
+        /// </summary>
         public IRelease Release { get; }
+
+        /// <summary>
+        /// Release/Push endpoint client
+        /// </summary>
         public IReleasePush ReleasePush { get; }
+
+        /// <summary>
+        /// Root Folder endpoint client
+        /// </summary>
         public IRootfolder Rootfolder { get; }
+
+        /// <summary>
+        /// Series endpoint client
+        /// </summary>
         public ISeries Series { get; }
+
+        /// <summary>
+        /// Series Lookup endpoint client
+        /// </summary>
         public ISeriesLookup SeriesLookup { get; }
+
+        /// <summary>
+        /// System Status endpoint client
+        /// </summary>
         public ISystemStatus SystemStatus { get; }
+
+        /// <summary>
+        /// System Backup endpoint client
+        /// </summary>
         public ISystemBackup SystemBackup { get; }
 
         /// <summary>
@@ -149,7 +219,7 @@ namespace SonarrSharp
 
             var response = string.Empty;
 
-            using (_webClient = new WebClient { Headers = WebClientHelpers.GetWebHeaderCollection(ApiKey) })
+            using (_webClient = new WebClient { Headers = WebClientHelpers.GetWebHeaderCollection(ApiKey), Proxy = null })
             {
                 try
                 {
@@ -191,7 +261,7 @@ namespace SonarrSharp
 
             var response = string.Empty;
 
-            using (_webClient = new WebClient { Headers = WebClientHelpers.GetWebHeaderCollection(ApiKey) })
+            using (_webClient = new WebClient { Headers = WebClientHelpers.GetWebHeaderCollection(ApiKey), Proxy = null })
             {
                 try
                 {

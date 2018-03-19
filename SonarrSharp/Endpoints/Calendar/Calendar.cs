@@ -5,10 +5,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Calendar
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Calendar : ICalendar
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Calendar(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

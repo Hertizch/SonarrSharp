@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Series
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Series : ISeries
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Series(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
@@ -54,7 +61,6 @@ namespace SonarrSharp.Endpoints.Series
         /// <param name="titleSlug">Title slug</param>
         /// <param name="images">Images array</param>
         /// <param name="seasons">Seasons array</param>
-        /// <param name="path">Full path to the series on disk</param>
         /// <param name="rootFolderPath">Full path will be created by combining the rootFolderPath with the series title</param>
         /// <param name="tvRageId">TV Rage ID</param>
         /// <param name="seasonFolder">Use season folders</param>

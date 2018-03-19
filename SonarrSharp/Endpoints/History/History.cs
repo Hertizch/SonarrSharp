@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.History
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class History : IHistory
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public History(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
@@ -21,7 +28,7 @@ namespace SonarrSharp.Endpoints.History
         /// <param name="sortKey">Series title or Date</param>
         /// <param name="page">Page</param>
         /// <param name="pageSize">Page size</param>
-        /// <param name="sortDir">Sort direction</param>
+        /// <param name="sortDirection">Sort direction</param>
         /// <returns>Data.History</returns>
         public async Task<Data.History> GetHistory(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] SortDirection sortDirection)
         {

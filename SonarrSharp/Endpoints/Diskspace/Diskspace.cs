@@ -5,10 +5,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Diskspace
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Diskspace : IDiskspace
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Diskspace(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

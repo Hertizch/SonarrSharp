@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Rootfolder
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Rootfolder : IRootfolder
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Rootfolder(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

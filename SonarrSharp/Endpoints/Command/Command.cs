@@ -2,17 +2,22 @@
 using SonarrSharp.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Command
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Command : ICommand
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Command(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

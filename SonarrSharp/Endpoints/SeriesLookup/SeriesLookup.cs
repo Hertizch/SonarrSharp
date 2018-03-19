@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SeriesLookup
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SeriesLookup : ISeriesLookup
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public SeriesLookup(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
@@ -16,7 +23,7 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// <summary>
         /// Searches for new shows on trakt
         /// </summary>
-        /// <param name="term">Series name</param>
+        /// <param name="title">Series title</param>
         /// <returns>Data.SeriesLookup[]</returns>
         public async Task<Data.SeriesLookup[]> SearchForSeries(string title)
         {

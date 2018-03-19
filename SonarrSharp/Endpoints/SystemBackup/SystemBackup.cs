@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SystemBackup
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class SystemBackup : ISystemBackup
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public SystemBackup(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

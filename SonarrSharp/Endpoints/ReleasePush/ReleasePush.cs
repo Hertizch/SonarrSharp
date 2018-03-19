@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.ReleasePush
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ReleasePush : IReleasePush
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public ReleasePush(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

@@ -7,6 +7,12 @@
     <Description>C# Sonarr API wrapper</Description>
     <Copyright>Hertizch</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.0.1</Version>
+    <PackageProjectUrl>https://github.com/Hertizch/SonarrSharp</PackageProjectUrl>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\SonarrSharp.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

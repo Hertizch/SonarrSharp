@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Episode
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Episode : IEpisode
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Episode(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

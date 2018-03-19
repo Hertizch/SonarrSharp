@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Parse
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Parse : IParse
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Parse(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

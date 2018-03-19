@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SystemStatus
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public interface ISystemStatus
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         Task<Data.SystemStatus> GetSystemStatus();
     }
 }

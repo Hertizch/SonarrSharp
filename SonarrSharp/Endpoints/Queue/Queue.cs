@@ -4,10 +4,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Queue
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Queue : IQueue
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Queue(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;

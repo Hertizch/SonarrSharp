@@ -5,10 +5,17 @@ using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Release
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Release : IRelease
     {
         private SonarrClient _sonarrClient;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sonarrClient"></param>
         public Release(SonarrClient sonarrClient)
         {
             _sonarrClient = sonarrClient;
