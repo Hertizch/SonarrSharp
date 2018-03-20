@@ -44,3 +44,6 @@ Console.WriteLine($"{command.Name}: {command.State}");
 
 ### March 19, 2018 #2
 - Updated endpoint client summaries
+
+### March 20, 2018
+- Added summary to more properties
