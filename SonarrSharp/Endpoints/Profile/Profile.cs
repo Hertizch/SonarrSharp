@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.Profile
             var json = await _sonarrClient.GetJson($"/profile");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Profile[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Profile[]>(json, Converter.Settings);
 
             return null;
         }

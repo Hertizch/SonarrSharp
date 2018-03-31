@@ -31,7 +31,7 @@ namespace SonarrSharp.Endpoints.Release
             var json = await _sonarrClient.GetJson($"/release");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Release[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Release[]>(json, Converter.Settings);
 
             return null;
         }
@@ -51,7 +51,7 @@ namespace SonarrSharp.Endpoints.Release
             var json = await _sonarrClient.PostJson($"/release", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Release[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Release[]>(json, Converter.Settings);
 
             return null;
         }

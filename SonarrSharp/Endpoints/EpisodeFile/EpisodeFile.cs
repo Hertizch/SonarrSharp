@@ -30,7 +30,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.EpisodeFile[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.EpisodeFile[]>(json, Converter.Settings);
 
             return null;
         }
@@ -45,7 +45,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
             var json = await _sonarrClient.GetJson($"/episodeFile/id={episodeId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.EpisodeFile>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.EpisodeFile>(json, Converter.Settings);
 
             return null;
         }

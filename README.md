@@ -47,3 +47,6 @@ Console.WriteLine($"{command.Name}: {command.State}");
 
 ### March 20, 2018
 - Added summary to more properties
+
+### April 1, 2018
+- Added Log endpoint

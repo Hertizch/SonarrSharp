@@ -30,7 +30,7 @@ namespace SonarrSharp.Endpoints.Calendar
             var json = await _sonarrClient.GetJson($"/calendar");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Calendar[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Calendar[]>(json, Converter.Settings);
 
             return null;
         }
@@ -46,7 +46,7 @@ namespace SonarrSharp.Endpoints.Calendar
             var json = await _sonarrClient.GetJson($"/calendar?start={start.ToString("yyyy-MM-dd")}&end={end.ToString("yyyy-MM-dd")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Calendar[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Calendar[]>(json, Converter.Settings);
 
             return null;
         }

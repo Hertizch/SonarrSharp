@@ -30,7 +30,7 @@ namespace SonarrSharp.Endpoints.SeriesLookup
             var json = await _sonarrClient.GetJson($"/series/lookup?term={title.Replace(" ", "%20")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, Converter.Settings);
 
             return null;
         }
@@ -45,7 +45,7 @@ namespace SonarrSharp.Endpoints.SeriesLookup
             var json = await _sonarrClient.GetJson($"/series/lookup?term=tvdb:{tvdbId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, Converter.Settings);
 
             return null;
         }

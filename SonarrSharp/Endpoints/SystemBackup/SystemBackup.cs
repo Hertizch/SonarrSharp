@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.SystemBackup
             var json = await _sonarrClient.GetJson($"/system/backup");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SystemBackup[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.SystemBackup[]>(json, Converter.Settings);
 
             return null;
         }

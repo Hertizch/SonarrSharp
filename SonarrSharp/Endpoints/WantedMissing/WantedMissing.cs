@@ -38,7 +38,7 @@ namespace SonarrSharp.Endpoints.WantedMissing
                 $"{(sortDirection != 0 ? "&sortDirection=" + sortDirection.ToString().ToLower() : "")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.WantedMissing>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.WantedMissing>(json, Converter.Settings);
 
             return null;
         }

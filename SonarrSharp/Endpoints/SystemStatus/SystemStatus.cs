@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.SystemStatus
             var json = await _sonarrClient.GetJson("/system/status");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SystemStatus>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.SystemStatus>(json, Converter.Settings);
 
             return null;
         }

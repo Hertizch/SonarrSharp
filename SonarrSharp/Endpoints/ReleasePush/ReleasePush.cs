@@ -44,7 +44,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
             var json = await _sonarrClient.PostJson($"/releasePush", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.ReleasePush[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.ReleasePush[]>(json, Converter.Settings);
 
             return null;
         }

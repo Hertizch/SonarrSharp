@@ -4,6 +4,7 @@ using SonarrSharp.Endpoints.Diskspace;
 using SonarrSharp.Endpoints.Episode;
 using SonarrSharp.Endpoints.EpisodeFile;
 using SonarrSharp.Endpoints.History;
+using SonarrSharp.Endpoints.Log;
 using SonarrSharp.Endpoints.Parse;
 using SonarrSharp.Endpoints.Profile;
 using SonarrSharp.Endpoints.Queue;
@@ -18,7 +19,6 @@ using SonarrSharp.Endpoints.WantedMissing;
 using SonarrSharp.Helpers;
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
@@ -73,55 +73,64 @@ namespace SonarrSharp
             SeriesLookup = new SeriesLookup(this);
             SystemStatus = new SystemStatus(this);
             SystemBackup = new SystemBackup(this);
-
-            if (WriteLogToFile)
-                Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient] Log file location set to {LogFilename}");
+            Log = new Log(this);
         }
 
         /// <summary>
-        /// Client hostname or IP address
+        /// Gets the host.
         /// </summary>
+        /// <value>
+        /// The host.
+        /// </value>
         public string Host { get; private set; }
 
         /// <summary>
-        /// Client port
+        /// Gets the port.
         /// </summary>
+        /// <value>
+        /// The port.
+        /// </value>
         public int Port { get; private set; }
 
         /// <summary>
-        /// Client API key
+        /// Gets the API key.
         /// </summary>
+        /// <value>
+        /// The API key.
+        /// </value>
         public string ApiKey { get; private set; }
 
         /// <summary>
-        /// Url base for reverse proxy support
+        /// Gets the URL base.
         /// </summary>
+        /// <value>
+        /// The URL base.
+        /// </value>
         public string UrlBase { get; private set; }
 
         /// <summary>
-        /// Communicate with client securely
+        /// Gets a value indicating whether [use SSL].
         /// </summary>
+        /// <value>
+        ///   <c>true</c> if [use SSL]; otherwise, <c>false</c>.
+        /// </value>
         public bool UseSsl { get; private set; }
 
         /// <summary>
-        /// Client API url
+        /// Gets the API URL.
         /// </summary>
+        /// <value>
+        /// The API URL.
+        /// </value>
         internal string ApiUrl { get; private set; }
 
         /// <summary>
-        /// (NOT YET USED) Write log information to file - defaults to false
+        /// Gets or sets a value indicating whether [write debug].
         /// </summary>
-        public bool WriteLogToFile { get; set; }
-
-        /// <summary>
-        /// Log filename - defaults to sonarrSharp.log in executing assembly path
-        /// </summary>
-        public string LogFilename { get; set; } = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "sonarrSharp.log");
-
-        /// <summary>
-        /// Verbose logging - should only be used for debugging
-        /// </summary>
-        public bool VerboseLogging { get; set; }
+        /// <value>
+        ///   <c>true</c> if [write debug]; otherwise, <c>false</c>.
+        /// </value>
+        public bool WriteDebug { get; set; }
 
         /// <summary>
         /// Calendar endpoint client
@@ -209,13 +218,18 @@ namespace SonarrSharp
         public ISystemBackup SystemBackup { get; }
 
         /// <summary>
+        /// Log endpoint client
+        /// </summary>
+        public ILog Log { get; }
+
+        /// <summary>
         /// Gets the GET response as a json formatted string
         /// </summary>
         /// <param name="endpointUrl">Endpoint URL</param>
         /// <returns>string</returns>
         internal async Task<string> GetJson(string endpointUrl)
         {
-            Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient.GetJson] {ApiUrl}{endpointUrl}");
+            Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.PostJson] Endpoint URL: '{endpointUrl}'");
 
             var response = string.Empty;
 
@@ -227,17 +241,17 @@ namespace SonarrSharp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"[{DateTime.Now}] [ERROR] [SonarrClient.GetJson] {ex}");
+                    Debug.WriteLine($"[SonarrSharp] [ERROR] [SonarrClient.GetJson] Endpoint URL: '{endpointUrl}', {ex}");
                 }
                 finally
                 {
-                    if (VerboseLogging)
+                    if (WriteDebug)
                     {
-                        Debug.WriteLine($"[{DateTime.Now}] [DEBUG] [SonarrClient.GetJson] Response: {response}");
+                        Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.PostJson] Endpoint URL: '{endpointUrl}', response: {response}");
                         var webClientHeaders = _webClient.ResponseHeaders;
                         if (webClientHeaders != null)
                             for (int i = 0; i < webClientHeaders.Count; i++)
-                                Debug.WriteLine($"[{DateTime.Now}] [DEBUG] [SonarrClient.GetJson] Response header: {webClientHeaders.GetKey(i)}={webClientHeaders.Get(i)}");
+                                Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.GetJson] Response header: {webClientHeaders.GetKey(i)}={webClientHeaders.Get(i)}");
                     }
                 }
             }
@@ -257,7 +271,8 @@ namespace SonarrSharp
         /// <returns>string</returns>
         internal async Task<string> PostJson(string endpointUrl, string data, string method)
         {
-            Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient.PostJson] {ApiUrl}{endpointUrl} - Data: {data}");
+            if (WriteDebug)
+                Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.PostJson] {method}: Endpoint URL: '{endpointUrl}', data: '{data}'");
 
             var response = string.Empty;
 
@@ -269,17 +284,17 @@ namespace SonarrSharp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"[{DateTime.Now}] [ERROR] [SonarrClient.PostJson] {ex}");
+                    Debug.WriteLine($"[SonarrSharp] [ERROR] [SonarrClient.PostJson] {method}: Endpoint URL: '{endpointUrl}', data: '{data}', {ex}");
                 }
                 finally
                 {
-                    if (VerboseLogging)
+                    if (WriteDebug)
                     {
-                        Debug.WriteLine($"[{DateTime.Now}] [DEBUG] [SonarrClient.PostJson] Response: {response}");
+                        Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.PostJson] {method}: Endpoint URL: '{endpointUrl}', data: '{data}', response: {response}");
                         var webClientHeaders = _webClient.ResponseHeaders;
                         if (webClientHeaders != null)
                             for (int i = 0; i < webClientHeaders.Count; i++)
-                                Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient.GetJson] Response header: {webClientHeaders.GetKey(i)}={webClientHeaders.Get(i)}");
+                                Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.GetJson] Response header: {webClientHeaders.GetKey(i)}={webClientHeaders.Get(i)}");
                     }
                 }
             }
@@ -297,7 +312,8 @@ namespace SonarrSharp
         /// <returns>Nothing</returns>
         internal async Task Delete(string endpointUrl)
         {
-            Debug.WriteLine($"[{DateTime.Now}] [INFO] [SonarrClient.Delete] {ApiUrl}{endpointUrl}");
+            if (WriteDebug)
+                Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.Delete] Endpoint URL: '{endpointUrl}'");
 
             using (var httpClient = new HttpClient { BaseAddress = new Uri(ApiUrl) })
             {
@@ -311,7 +327,7 @@ namespace SonarrSharp
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"[{DateTime.Now}] [ERROR] [SonarrClient.Delete] {ex}");
+                    Debug.WriteLine($"[SonarrSharp] [ERROR] [SonarrClient.Delete] Endpoint URL: '{endpointUrl}', {ex}");
                 }
             }
         }

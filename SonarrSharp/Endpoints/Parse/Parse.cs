@@ -30,7 +30,7 @@ namespace SonarrSharp.Endpoints.Parse
             var json = await _sonarrClient.GetJson($"/parse?title={title}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Parse>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Parse>(json, Converter.Settings);
 
             return null;
         }
@@ -45,7 +45,7 @@ namespace SonarrSharp.Endpoints.Parse
             var json = await _sonarrClient.GetJson($"/parse?path={path}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Parse>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Parse>(json, Converter.Settings);
 
             return null;
         }

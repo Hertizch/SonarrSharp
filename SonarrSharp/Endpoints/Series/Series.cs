@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -32,7 +31,7 @@ namespace SonarrSharp.Endpoints.Series
             var json = await _sonarrClient.GetJson("/series");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Series[]>(json, Converter.Settings);
 
             return null;
         }
@@ -47,7 +46,7 @@ namespace SonarrSharp.Endpoints.Series
             var json = await _sonarrClient.GetJson($"/series/id={seriesId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
 
             return null;
         }
@@ -91,7 +90,7 @@ namespace SonarrSharp.Endpoints.Series
             var json = await _sonarrClient.PostJson("/series", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
 
             return null;
         }
@@ -106,7 +105,7 @@ namespace SonarrSharp.Endpoints.Series
             var json = await _sonarrClient.PostJson("/series", JsonConvert.SerializeObject(series), "PUT");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
 
             return null;
         }

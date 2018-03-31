@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.Diskspace
             var json = await _sonarrClient.GetJson("/diskspace");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Diskspace[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Diskspace[]>(json, Converter.Settings);
 
             return null;
         }

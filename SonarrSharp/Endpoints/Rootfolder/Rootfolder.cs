@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.Rootfolder
             var json = await _sonarrClient.GetJson($"/rootfolder");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Rootfolder[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Rootfolder[]>(json, Converter.Settings);
 
             return null;
         }

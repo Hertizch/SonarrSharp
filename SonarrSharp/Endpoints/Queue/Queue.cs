@@ -29,7 +29,7 @@ namespace SonarrSharp.Endpoints.Queue
             var json = await _sonarrClient.GetJson($"/queue");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Queue[]>(json, JsonHelpers.SerializerSettings);
+                return JsonConvert.DeserializeObject<Data.Queue[]>(json, Converter.Settings);
 
             return null;
         }
