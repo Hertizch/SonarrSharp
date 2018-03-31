@@ -50,3 +50,4 @@ Console.WriteLine($"{command.Name}: {command.State}");
 
 ### April 1, 2018
 - Added Log endpoint
+- Included optional includeSeasonImages option to Series endpoint
