@@ -25,10 +25,13 @@ namespace SonarrSharp.Endpoints.Series
         /// <summary>
         /// Returns all series in your collection
         /// </summary>
-        /// <returns>Data.Series[]</returns>
-        public async Task<Data.Series[]> GetSeries()
+        /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
+        /// <returns>
+        /// Data.Series[]
+        /// </returns>
+        public async Task<Data.Series[]> GetSeries([Optional] bool includeSeasonImages)
         {
-            var json = await _sonarrClient.GetJson("/series");
+            var json = await _sonarrClient.GetJson($"/series{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
 
             if (!string.IsNullOrEmpty(json))
                 return JsonConvert.DeserializeObject<Data.Series[]>(json, Converter.Settings);
@@ -40,10 +43,13 @@ namespace SonarrSharp.Endpoints.Series
         /// Returns the series with the matching ID
         /// </summary>
         /// <param name="seriesId">Series ID</param>
-        /// <returns>Data.Series</returns>
-        public async Task<Data.Series> GetSeries(int seriesId)
+        /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
+        /// <returns>
+        /// Data.Series
+        /// </returns>
+        public async Task<Data.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages)
         {
-            var json = await _sonarrClient.GetJson($"/series/id={seriesId}");
+            var json = await _sonarrClient.GetJson($"/series/id={seriesId}{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
 
             if (!string.IsNullOrEmpty(json))
                 return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);

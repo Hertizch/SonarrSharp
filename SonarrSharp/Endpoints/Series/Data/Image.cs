@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using SonarrSharp.Endpoints.Series.Enum;
+using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Endpoints.Series.Data
 {
@@ -13,7 +14,7 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The type of the cover.
         /// </value>
-        [J("coverType")] public string CoverType { get; set; }
+        [J("coverType")] public CoverType CoverType { get; set; }
 
         /// <summary>
         /// Gets or sets the URL.

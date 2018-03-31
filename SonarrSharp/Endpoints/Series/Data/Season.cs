@@ -30,5 +30,13 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// The statistics.
         /// </value>
         [J("statistics")] public Statistics Statistics { get; set; }
+
+        /// <summary>
+        /// Gets or sets the images.
+        /// </summary>
+        /// <value>
+        /// The images.
+        /// </value>
+        [J("images")] public Image[] Images { get; set; }
     }
 }

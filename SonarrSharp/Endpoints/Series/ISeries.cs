@@ -12,15 +12,21 @@ namespace SonarrSharp.Endpoints.Series
         /// <summary>
         /// Returns all series in your collection
         /// </summary>
-        /// <returns>Data.Series[]</returns>
-        Task<Data.Series[]> GetSeries();
+        /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
+        /// <returns>
+        /// Data.Series[]
+        /// </returns>
+        Task<Data.Series[]> GetSeries([Optional] bool includeSeasonImages);
 
         /// <summary>
         /// Returns the series with the matching ID
         /// </summary>
         /// <param name="seriesId">Series ID</param>
-        /// <returns>Data.Series</returns>
-        Task<Data.Series> GetSeries(int seriesId);
+        /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
+        /// <returns>
+        /// Data.Series
+        /// </returns>
+        Task<Data.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages);
 
         /// <summary>
         /// Adds a new series to your collection (Refer to https://github.com/Sonarr/Sonarr/wiki/Series for more information on usage)
