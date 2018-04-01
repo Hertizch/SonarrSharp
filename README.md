@@ -34,20 +34,3 @@ var command = await.sonarrClient.Command.SeriesSearch(123);
 // Get status of command
 Console.WriteLine($"{command.Name}: {command.State}");
 ```
-
-## Changelog
-### March 19, 2018
-- Normalized line endings
-- Included XML documentation file
-- Updated lots of summary texts on methods and properties
-- Removed unnecessary Usings
-
-### March 19, 2018 #2
-- Updated endpoint client summaries
-
-### March 20, 2018
-- Added summary to more properties
-
-### April 1, 2018
-- Added Log endpoint
-- Included optional includeSeasonImages option to Series endpoint
