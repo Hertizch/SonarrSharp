@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SonarrSharp.Endpoints.Series.Enum;
+using System;
 using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Endpoints.Series.Data
@@ -78,7 +79,7 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The status.
         /// </value>
-        [J("status")] public string Status { get; set; }
+        [J("status")] public Status Status { get; set; }
 
         /// <summary>
         /// Gets or sets the overview.
@@ -230,7 +231,7 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The type of the series.
         /// </value>
-        [J("seriesType")] public string SeriesType { get; set; }
+        [J("seriesType")] public SeriesType SeriesType { get; set; }
 
         /// <summary>
         /// Gets or sets the clean title.

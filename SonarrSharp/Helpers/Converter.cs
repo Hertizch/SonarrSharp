@@ -14,8 +14,13 @@ namespace SonarrSharp.Helpers
         public override bool CanConvert(Type t) =>
             t == typeof(Level) ||
             t == typeof(CoverType) ||
+            t == typeof(SeriesType) ||
+            t == typeof(Status) ||
+
             t == typeof(Level?) ||
-            t == typeof(CoverType?
+            t == typeof(CoverType?) ||
+            t == typeof(SeriesType?) ||
+            t == typeof(Status?
             );
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
@@ -24,6 +29,10 @@ namespace SonarrSharp.Helpers
                 return LevelExtensions.ReadJson(reader, serializer);
             if (t == typeof(CoverType))
                 return CoverTypeExtensions.ReadJson(reader, serializer);
+            if (t == typeof(SeriesType))
+                return SeriesTypeExtensions.ReadJson(reader, serializer);
+            if (t == typeof(Status))
+                return StatusExtensions.ReadJson(reader, serializer);
 
             if (t == typeof(Level?))
             {
@@ -34,6 +43,16 @@ namespace SonarrSharp.Helpers
             {
                 if (reader.TokenType == JsonToken.Null) return null;
                 return CoverTypeExtensions.ReadJson(reader, serializer);
+            }
+            if (t == typeof(SeriesType?))
+            {
+                if (reader.TokenType == JsonToken.Null) return null;
+                return SeriesTypeExtensions.ReadJson(reader, serializer);
+            }
+            if (t == typeof(Status?))
+            {
+                if (reader.TokenType == JsonToken.Null) return null;
+                return StatusExtensions.ReadJson(reader, serializer);
             }
 
             throw new Exception("Unknown type");
@@ -50,6 +69,16 @@ namespace SonarrSharp.Helpers
             if (t == typeof(CoverType))
             {
                 ((CoverType)value).WriteJson(writer, serializer);
+                return;
+            }
+            if (t == typeof(SeriesType))
+            {
+                ((SeriesType)value).WriteJson(writer, serializer);
+                return;
+            }
+            if (t == typeof(Status))
+            {
+                ((Status)value).WriteJson(writer, serializer);
                 return;
             }
 
