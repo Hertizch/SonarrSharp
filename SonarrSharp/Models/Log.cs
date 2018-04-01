@@ -48,11 +48,11 @@ namespace SonarrSharp.Models
         [J("totalRecords")] public long TotalRecords { get; set; }
 
         /// <summary>
-        /// Gets or sets the records.
+        /// Gets or sets the log records.
         /// </summary>
         /// <value>
-        /// The records.
+        /// The log records.
         /// </value>
-        [J("records")] public Record[] Records { get; set; }
+        [J("records")] public LogRecord[] LogRecords { get; set; }
     }
 }

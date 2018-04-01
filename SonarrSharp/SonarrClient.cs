@@ -122,7 +122,7 @@ namespace SonarrSharp
         /// <value>
         /// The API URL.
         /// </value>
-        internal string ApiUrl { get; private set; }
+        public string ApiUrl { get; private set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [write debug].

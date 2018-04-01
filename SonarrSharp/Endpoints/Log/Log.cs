@@ -1,5 +1,8 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System;
+using System.Diagnostics;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Log
@@ -24,12 +27,12 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.LogFile> GetLogFiles()
+        public async Task<Models.LogFile[]> GetLogFiles()
         {
             var json = await _sonarrClient.GetJson($"/log/file");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.LogFile>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.LogFile[]>(json, Converter.Settings);
 
             return null;
         }
@@ -39,12 +42,24 @@ namespace SonarrSharp.Endpoints.Log
         /// </summary>
         /// <param name="filename">The filename.</param>
         /// <returns></returns>
-        public async Task<string[]> GetLogFile(string filename)
+        public async Task<string> GetLogFile(string filename)
         {
-            var json = await _sonarrClient.GetJson($"/log/file/filename={filename}");
+            string logFile = null;
 
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<string[]>(json, Converter.Settings);
+            using (var wc = new WebClient { Headers = WebClientHelpers.GetWebHeaderCollection(_sonarrClient.ApiKey), Proxy = null })
+            {
+                try
+                {
+                    logFile = await wc.DownloadStringTaskAsync(_sonarrClient.ApiUrl + $"/log/file/filename={filename}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[SonarrSharp] [ERROR] [Log.GetLogFile] Filename: '{filename}', {ex}");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(logFile))
+                return logFile;
 
             return null;
         }
