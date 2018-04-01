@@ -10,7 +10,7 @@ namespace SonarrSharp.Endpoints.Rootfolder
         /// <summary>
         /// Gets root folders
         /// </summary>
-        /// <returns>Data.Rootfolder[]</returns>
-        Task<Data.Rootfolder[]> GetRootFolders();
+        /// <returns></returns>
+        Task<Models.Rootfolder[]> GetRootFolders();
     }
 }

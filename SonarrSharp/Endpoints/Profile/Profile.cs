@@ -23,13 +23,13 @@ namespace SonarrSharp.Endpoints.Profile
         /// <summary>
         /// Gets all quality profiles
         /// </summary>
-        /// <returns>Data.Profile[]</returns>
-        public async Task<Data.Profile[]> GetProfiles()
+        /// <returns></returns>
+        public async Task<Models.Profile[]> GetProfiles()
         {
             var json = await _sonarrClient.GetJson($"/profile");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Profile[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Profile[]>(json, Converter.Settings);
 
             return null;
         }

@@ -11,14 +11,14 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// Searches for new shows on trakt
         /// </summary>
         /// <param name="title">Series title</param>
-        /// <returns>Data.SeriesLookup[]</returns>
-        Task<Data.SeriesLookup[]> SearchForSeries(string title);
+        /// <returns></returns>
+        Task<Models.SeriesLookup[]> SearchForSeries(string title);
 
         /// <summary>
         /// Searches for new shows on trakt
         /// </summary>
         /// <param name="tvdbId">TV Database ID number</param>
-        /// <returns>Data.SeriesLookup[]</returns>
-        Task<Data.SeriesLookup[]> SearchForSeries(int tvdbId);
+        /// <returns></returns>
+        Task<Models.SeriesLookup[]> SearchForSeries(int tvdbId);
     }
 }

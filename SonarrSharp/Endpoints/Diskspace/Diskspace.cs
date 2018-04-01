@@ -23,13 +23,13 @@ namespace SonarrSharp.Endpoints.Diskspace
         /// <summary>
         /// Gets information about Diskspace
         /// </summary>
-        /// <returns>Data.Diskspace[]</returns>
-        public async Task<Data.Diskspace[]> GetDiskspace()
+        /// <returns></returns>
+        public async Task<Models.Diskspace[]> GetDiskspace()
         {
             var json = await _sonarrClient.GetJson("/diskspace");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Diskspace[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Diskspace[]>(json, Converter.Settings);
 
             return null;
         }

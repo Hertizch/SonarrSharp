@@ -24,13 +24,13 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// Searches for new shows on trakt
         /// </summary>
         /// <param name="title">Series title</param>
-        /// <returns>Data.SeriesLookup[]</returns>
-        public async Task<Data.SeriesLookup[]> SearchForSeries(string title)
+        /// <returns></returns>
+        public async Task<Models.SeriesLookup[]> SearchForSeries(string title)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term={title.Replace(" ", "%20")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.SeriesLookup[]>(json, Converter.Settings);
 
             return null;
         }
@@ -39,13 +39,13 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// Searches for new shows on trakt
         /// </summary>
         /// <param name="tvdbId">TV Database ID number</param>
-        /// <returns>Data.SeriesLookup[]</returns>
-        public async Task<Data.SeriesLookup[]> SearchForSeries(int tvdbId)
+        /// <returns></returns>
+        public async Task<Models.SeriesLookup[]> SearchForSeries(int tvdbId)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term=tvdb:{tvdbId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SeriesLookup[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.SeriesLookup[]>(json, Converter.Settings);
 
             return null;
         }

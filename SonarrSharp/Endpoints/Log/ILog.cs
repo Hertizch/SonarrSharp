@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Log
 {
@@ -14,7 +11,7 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        Task<Data.LogFile> GetLogFiles();
+        Task<Models.LogFile> GetLogFiles();
 
         /// <summary>
         /// Gets the log file.
@@ -27,6 +24,6 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log.
         /// </summary>
         /// <returns></returns>
-        Task<Data.Log> GetLog();
+        Task<Models.Log> GetLog();
     }
 }

@@ -1,9 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using SonarrSharp.Endpoints.Log.Enum;
-using SonarrSharp.Endpoints.Log.Extensions;
-using SonarrSharp.Endpoints.Series.Enum;
-using SonarrSharp.Endpoints.Series.Extensions;
+using SonarrSharp.Enum;
+using SonarrSharp.Extensions;
 using System;
 using System.Globalization;
 
@@ -16,11 +14,13 @@ namespace SonarrSharp.Helpers
             t == typeof(CoverType) ||
             t == typeof(SeriesType) ||
             t == typeof(Status) ||
+            t == typeof(SystemBackupType) ||
 
             t == typeof(Level?) ||
             t == typeof(CoverType?) ||
             t == typeof(SeriesType?) ||
-            t == typeof(Status?
+            t == typeof(Status?) ||
+            t == typeof(SystemBackupType?
             );
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
@@ -33,6 +33,8 @@ namespace SonarrSharp.Helpers
                 return SeriesTypeExtensions.ReadJson(reader, serializer);
             if (t == typeof(Status))
                 return StatusExtensions.ReadJson(reader, serializer);
+            if (t == typeof(SystemBackupType))
+                return SystemBackupTypeExtensions.ReadJson(reader, serializer);
 
             if (t == typeof(Level?))
             {
@@ -53,6 +55,11 @@ namespace SonarrSharp.Helpers
             {
                 if (reader.TokenType == JsonToken.Null) return null;
                 return StatusExtensions.ReadJson(reader, serializer);
+            }
+            if (t == typeof(SystemBackupType?))
+            {
+                if (reader.TokenType == JsonToken.Null) return null;
+                return SystemBackupTypeExtensions.ReadJson(reader, serializer);
             }
 
             throw new Exception("Unknown type");
@@ -79,6 +86,11 @@ namespace SonarrSharp.Helpers
             if (t == typeof(Status))
             {
                 ((Status)value).WriteJson(writer, serializer);
+                return;
+            }
+            if (t == typeof(SystemBackupType))
+            {
+                ((SystemBackupType)value).WriteJson(writer, serializer);
                 return;
             }
 

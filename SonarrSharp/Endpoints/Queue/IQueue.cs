@@ -10,7 +10,7 @@ namespace SonarrSharp.Endpoints.Queue
         /// <summary>
         /// Gets currently downloading info
         /// </summary>
-        /// <returns>Data.Queue[]</returns>
-        Task<Data.Queue[]> GetQueue();
+        /// <returns></returns>
+        Task<Models.Queue[]> GetQueue();
     }
 }

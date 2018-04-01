@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SonarrSharp.Enums;
 using SonarrSharp.Helpers;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -28,17 +27,17 @@ namespace SonarrSharp.Endpoints.WantedMissing
         /// <param name="sortKey">Series title or airDateUtc</param>
         /// <param name="page">Page</param>
         /// <param name="pageSize">Page size</param>
-        /// <param name="sortDirection">Sort direction</param>
-        /// <returns>Data.WantedMissing</returns>
-        public async Task<Data.WantedMissing> GetMissing(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] SortDirection sortDirection)
+        /// <param name="sortDirection">Sort direction, asc or desc</param>
+        /// <returns></returns>
+        public async Task<Models.WantedMissing> GetMissing(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] string sortDirection)
         {
             var json = await _sonarrClient.GetJson($"/wanted/missing?sortKey={sortKey}" +
                 $"{(page != 0 ? "&page=" + page : "")}" +
                 $"{(pageSize != 0 ? "&pageSize=" + pageSize : "")}" +
-                $"{(sortDirection != 0 ? "&sortDirection=" + sortDirection.ToString().ToLower() : "")}");
+                $"{(sortDirection != null ? "&sortDirection=" + sortDirection : "")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.WantedMissing>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.WantedMissing>(json, Converter.Settings);
 
             return null;
         }

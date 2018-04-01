@@ -24,12 +24,12 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        public async Task<Data.LogFile> GetLogFiles()
+        public async Task<Models.LogFile> GetLogFiles()
         {
             var json = await _sonarrClient.GetJson($"/log/file");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.LogFile>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.LogFile>(json, Converter.Settings);
 
             return null;
         }
@@ -53,12 +53,12 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log.
         /// </summary>
         /// <returns></returns>
-        public async Task<Data.Log> GetLog()
+        public async Task<Models.Log> GetLog()
         {
             var json = await _sonarrClient.GetJson($"/log");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Log>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Log>(json, Converter.Settings);
 
             return null;
         }

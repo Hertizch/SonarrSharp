@@ -24,13 +24,13 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// Returns all episode files for the given series
         /// </summary>
         /// <param name="seriesId">Series ID</param>
-        /// <returns>Data.EpisodeFile[]</returns>
-        public async Task<Data.EpisodeFile[]> GetEpisodeFiles(int seriesId)
+        /// <returns></returns>
+        public async Task<Models.EpisodeFile[]> GetEpisodeFiles(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.EpisodeFile[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.EpisodeFile[]>(json, Converter.Settings);
 
             return null;
         }
@@ -39,13 +39,13 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// Returns the episode file with the matching id
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
-        /// <returns>Data.EpisodeFile</returns>
-        public async Task<Data.EpisodeFile> GetEpisodeFile(int episodeId)
+        /// <returns></returns>
+        public async Task<Models.EpisodeFile> GetEpisodeFile(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile/id={episodeId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.EpisodeFile>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.EpisodeFile>(json, Converter.Settings);
 
             return null;
         }
@@ -54,7 +54,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// Delete the given episode file
         /// </summary>
         /// <param name="id">Episode file ID</param>
-        /// <returns>Nothing</returns>
+        /// <returns></returns>
         public async Task DeleteEpisodeFile(int id)
         {
             await _sonarrClient.Delete($"/episodeFile/id={id}");

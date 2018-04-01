@@ -23,13 +23,13 @@ namespace SonarrSharp.Endpoints.SystemStatus
         /// <summary>
         /// Returns system status
         /// </summary>
-        /// <returns>Data.SystemStatus</returns>
-        public async Task<Data.SystemStatus> GetSystemStatus()
+        /// <returns></returns>
+        public async Task<Models.SystemStatus> GetSystemStatus()
         {
             var json = await _sonarrClient.GetJson("/system/status");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SystemStatus>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.SystemStatus>(json, Converter.Settings);
 
             return null;
         }

@@ -25,13 +25,13 @@ namespace SonarrSharp.Endpoints.Release
         /// Gets releases by episode ID from Sonarr's search cache (30 minute cache)
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
-        /// <returns>Data.Release[]</returns>
-        public async Task<Data.Release[]> GetReleases(int episodeId)
+        /// <returns></returns>
+        public async Task<Models.Release[]> GetReleases(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/release");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Release[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Release[]>(json, Converter.Settings);
 
             return null;
         }
@@ -40,8 +40,8 @@ namespace SonarrSharp.Endpoints.Release
         /// Adds a previously searched release to the download client, if the release is still in Sonarr's search cache (30 minute cache)
         /// </summary>
         /// <param name="guid">Release GUID</param>
-        /// <returns>Data.Release[]</returns>
-        public async Task<Data.Release[]> AddRelease(string guid)
+        /// <returns></returns>
+        public async Task<Models.Release[]> AddRelease(string guid)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
             {
@@ -51,7 +51,7 @@ namespace SonarrSharp.Endpoints.Release
             var json = await _sonarrClient.PostJson($"/release", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Release[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Release[]>(json, Converter.Settings);
 
             return null;
         }

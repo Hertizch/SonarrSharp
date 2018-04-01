@@ -23,13 +23,13 @@ namespace SonarrSharp.Endpoints.Queue
         /// <summary>
         /// Gets currently downloading info
         /// </summary>
-        /// <returns>Data.Queue[]</returns>
-        public async Task<Data.Queue[]> GetQueue()
+        /// <returns></returns>
+        public async Task<Models.Queue[]> GetQueue()
         {
             var json = await _sonarrClient.GetJson($"/queue");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Queue[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Queue[]>(json, Converter.Settings);
 
             return null;
         }

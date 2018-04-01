@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using SonarrSharp.Enums;
 using SonarrSharp.Helpers;
 using System;
 using System.Collections.Generic;
@@ -26,12 +25,12 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <summary>
         /// No description
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="downloadUrl"></param>
-        /// <param name="downloadProtocol">Usenet or Torrent</param>
-        /// <param name="date"></param>
-        /// <returns>Data.ReleasePush[]</returns>
-        public async Task<Data.ReleasePush[]> PushRelease(string title, string downloadUrl, DownloadProtocol downloadProtocol, DateTime date)
+        /// <param name="title">The title.</param>
+        /// <param name="downloadUrl">The download URL.</param>
+        /// <param name="downloadProtocol">Download protocol, usenet or torrent</param>
+        /// <param name="date">The date.</param>
+        /// <returns></returns>
+        public async Task<Models.ReleasePush[]> PushRelease(string title, string downloadUrl, string downloadProtocol, DateTime date)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
             {
@@ -44,7 +43,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
             var json = await _sonarrClient.PostJson($"/releasePush", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.ReleasePush[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.ReleasePush[]>(json, Converter.Settings);
 
             return null;
         }

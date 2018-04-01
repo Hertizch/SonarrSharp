@@ -24,13 +24,13 @@ namespace SonarrSharp.Endpoints.Episode
         /// Returns all episodes for the given series
         /// </summary>
         /// <param name="seriesId">Series ID</param>
-        /// <returns>Data.Episode[]</returns>
-        public async Task<Data.Episode[]> GetEpisodes(int seriesId)
+        /// <returns></returns>
+        public async Task<Models.Episode[]> GetEpisodes(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episode?seriesId={seriesId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Episode[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Episode[]>(json, Converter.Settings);
 
             return null;
         }
@@ -39,13 +39,13 @@ namespace SonarrSharp.Endpoints.Episode
         /// Returns the episode with the matching id
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
-        /// <returns>Data.Episode</returns>
-        public async Task<Data.Episode> GetEpisode(int episodeId)
+        /// <returns></returns>
+        public async Task<Models.Episode> GetEpisode(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episode/id={episodeId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Episode>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings);
 
             return null;
         }
@@ -53,14 +53,14 @@ namespace SonarrSharp.Endpoints.Episode
         /// <summary>
         /// Update the given episodes, currently only monitored is changed, all other modifications are ignored.
         /// </summary>
-        /// <param name="episode">Episode to update - Requires all properties of Data.Episode object</param>
-        /// <returns>Data.Episode</returns>
-        public async Task<Data.Episode> UpdateEpisode(Data.Episode episode)
+        /// <param name="episode">Episode to update - Requires all properties of Models.Episode object</param>
+        /// <returns></returns>
+        public async Task<Models.Episode> UpdateEpisode(Models.Episode episode)
         {
             var json = await _sonarrClient.PostJson("/command", JsonConvert.SerializeObject(episode), "PUT");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Episode>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings);
 
             return null;
         }

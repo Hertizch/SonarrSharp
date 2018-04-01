@@ -1,5 +1,4 @@
-﻿using SonarrSharp.Enums;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.History
@@ -15,8 +14,8 @@ namespace SonarrSharp.Endpoints.History
         /// <param name="sortKey">Series title or Date</param>
         /// <param name="page">Page</param>
         /// <param name="pageSize">Page size</param>
-        /// <param name="sortDirection">Sort direction</param>
-        /// <returns>Data.History</returns>
-        Task<Data.History> GetHistory(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] SortDirection sortDirection);
+        /// <param name="sortDirection">Sort direction, asc or desc</param>
+        /// <returns></returns>
+        Task<Models.History> GetHistory(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] string sortDirection);
     }
 }

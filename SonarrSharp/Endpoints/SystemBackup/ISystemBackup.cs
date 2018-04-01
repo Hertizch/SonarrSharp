@@ -10,7 +10,7 @@ namespace SonarrSharp.Endpoints.SystemBackup
         /// <summary>
         /// Returns the list of available backups
         /// </summary>
-        /// <returns>Data.SystemBackup[]</returns>
-        Task<Data.SystemBackup[]> GetSystemBackups();
+        /// <returns></returns>
+        Task<Models.SystemBackup[]> GetSystemBackups();
     }
 }

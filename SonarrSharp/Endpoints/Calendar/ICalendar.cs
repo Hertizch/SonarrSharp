@@ -11,15 +11,15 @@ namespace SonarrSharp.Endpoints.Calendar
         /// <summary>
         /// Gets upcoming episodes, if start/end are not supplied episodes airing today and tomorrow will be returned
         /// </summary>
-        /// <returns>Data.Calendar[]</returns>
-        Task<Data.Calendar[]> GetCalendar();
+        /// <returns></returns>
+        Task<Models.Calendar[]> GetCalendar();
 
         /// <summary>
         /// Gets upcoming episodes, between the given time
         /// </summary>
         /// <param name="start">From date</param>
         /// <param name="end">To date</param>
-        /// <returns>Data.Calendar[]</returns>
-        Task<Data.Calendar[]> GetCalendar(DateTime start, DateTime end);
+        /// <returns></returns>
+        Task<Models.Calendar[]> GetCalendar(DateTime start, DateTime end);
     }
 }

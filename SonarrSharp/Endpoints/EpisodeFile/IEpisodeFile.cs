@@ -11,21 +11,21 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// Returns all episode files for the given series
         /// </summary>
         /// <param name="seriesId">Series ID</param>
-        /// <returns>Data.EpisodeFile[]</returns>
-        Task<Data.EpisodeFile[]> GetEpisodeFiles(int seriesId);
+        /// <returns></returns>
+        Task<Models.EpisodeFile[]> GetEpisodeFiles(int seriesId);
 
         /// <summary>
         /// Returns the episode file with the matching id
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
-        /// <returns>Data.EpisodeFile</returns>
-        Task<Data.EpisodeFile> GetEpisodeFile(int episodeId);
+        /// <returns></returns>
+        Task<Models.EpisodeFile> GetEpisodeFile(int episodeId);
 
         /// <summary>
         /// Delete the given episode file
         /// </summary>
         /// <param name="id">Episode file ID</param>
-        /// <returns>Nothing</returns>
+        /// <returns></returns>
         Task DeleteEpisodeFile(int id);
     }
 }

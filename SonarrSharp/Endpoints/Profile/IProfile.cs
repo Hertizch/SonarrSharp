@@ -10,7 +10,7 @@ namespace SonarrSharp.Endpoints.Profile
         /// <summary>
         /// Gets all quality profiles
         /// </summary>
-        /// <returns>Data.Profile[]</returns>
-        Task<Data.Profile[]> GetProfiles();
+        /// <returns></returns>
+        Task<Models.Profile[]> GetProfiles();
     }
 }

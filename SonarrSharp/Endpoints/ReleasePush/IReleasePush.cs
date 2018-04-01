@@ -1,5 +1,4 @@
-﻿using SonarrSharp.Enums;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.ReleasePush
@@ -12,11 +11,11 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <summary>
         /// No description
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="downloadUrl"></param>
-        /// <param name="downloadProtocol">Usenet or Torrent</param>
-        /// <param name="date"></param>
-        /// <returns>Data.ReleasePush[]</returns>
-        Task<Data.ReleasePush[]> PushRelease(string title, string downloadUrl, DownloadProtocol downloadProtocol, DateTime date);
+        /// <param name="title">The title.</param>
+        /// <param name="downloadUrl">The download URL.</param>
+        /// <param name="downloadProtocol">Download protocol, usenet or torrent</param>
+        /// <param name="date">The date.</param>
+        /// <returns></returns>
+        Task<Models.ReleasePush[]> PushRelease(string title, string downloadUrl, string downloadProtocol, DateTime date);
     }
 }

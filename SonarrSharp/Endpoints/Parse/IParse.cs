@@ -11,14 +11,14 @@ namespace SonarrSharp.Endpoints.Parse
         /// Returns the result of parsing a title
         /// </summary>
         /// <param name="title">Title</param>
-        /// <returns>Data.Parse</returns>
-        Task<Data.Parse> ParseTitle(string title);
+        /// <returns></returns>
+        Task<Models.Parse> ParseTitle(string title);
 
         /// <summary>
         /// Returns the result of parsing a path
         /// </summary>
         /// <param name="path">Path</param>
-        /// <returns>Data.Parse</returns>
-        Task<Data.Parse> ParsePath(string path);
+        /// <returns></returns>
+        Task<Models.Parse> ParsePath(string path);
     }
 }

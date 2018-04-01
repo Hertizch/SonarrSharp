@@ -24,13 +24,13 @@ namespace SonarrSharp.Endpoints.Parse
         /// Returns the result of parsing a title
         /// </summary>
         /// <param name="title">Title</param>
-        /// <returns>Data.Parse</returns>
-        public async Task<Data.Parse> ParseTitle(string title)
+        /// <returns></returns>
+        public async Task<Models.Parse> ParseTitle(string title)
         {
             var json = await _sonarrClient.GetJson($"/parse?title={title}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Parse>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings);
 
             return null;
         }
@@ -39,13 +39,13 @@ namespace SonarrSharp.Endpoints.Parse
         /// Returns the result of parsing a path
         /// </summary>
         /// <param name="path">Path</param>
-        /// <returns>Data.Parse</returns>
-        public async Task<Data.Parse> ParsePath(string path)
+        /// <returns></returns>
+        public async Task<Models.Parse> ParsePath(string path)
         {
             var json = await _sonarrClient.GetJson($"/parse?path={path}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Parse>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings);
 
             return null;
         }

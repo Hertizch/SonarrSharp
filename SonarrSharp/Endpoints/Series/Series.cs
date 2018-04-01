@@ -26,15 +26,13 @@ namespace SonarrSharp.Endpoints.Series
         /// Returns all series in your collection
         /// </summary>
         /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
-        /// <returns>
-        /// Data.Series[]
-        /// </returns>
-        public async Task<Data.Series[]> GetSeries([Optional] bool includeSeasonImages)
+        /// <returns></returns>
+        public async Task<Models.Series[]> GetSeries([Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Series[]>(json, Converter.Settings);
 
             return null;
         }
@@ -44,15 +42,13 @@ namespace SonarrSharp.Endpoints.Series
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
-        /// <returns>
-        /// Data.Series
-        /// </returns>
-        public async Task<Data.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages)
+        /// <returns></returns>
+        public async Task<Models.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series/id={seriesId}{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
 
             return null;
         }
@@ -71,8 +67,8 @@ namespace SonarrSharp.Endpoints.Series
         /// <param name="seasonFolder">Use season folders</param>
         /// <param name="monitored">Is monitored</param>
         /// <param name="addOptions">Object that contains three boolean properties; ignoreEpisodesWithFiles: Unmonitors any episodes with a file, ignoreEpisodesWithoutFiles: Unmonitors any episodes without a file, searchForMissingEpisodes: Searches for missing files after applying ignoreEpisodesWithFiles and ignoreEpisodesWithoutFiles</param>
-        /// <returns>Data.Series</returns>
-        public async Task<Data.Series> AddSeries(int tvdbId, string title, int qualityProfileId, string titleSlug, Data.Image[] images, Data.Season[] seasons, string rootFolderPath, [Optional] int tvRageId, [Optional] bool seasonFolder, [Optional] bool monitored, [Optional] Dictionary<string, bool> addOptions)
+        /// <returns></returns>
+        public async Task<Models.Series> AddSeries(int tvdbId, string title, int qualityProfileId, string titleSlug, Models.Image[] images, Models.Season[] seasons, string rootFolderPath, [Optional] int tvRageId, [Optional] bool seasonFolder, [Optional] bool monitored, [Optional] Dictionary<string, bool> addOptions)
         {
             var dictionary = new Dictionary<string, object>
             {
@@ -96,7 +92,7 @@ namespace SonarrSharp.Endpoints.Series
             var json = await _sonarrClient.PostJson("/series", parameter, "POST");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
 
             return null;
         }
@@ -105,13 +101,13 @@ namespace SonarrSharp.Endpoints.Series
         /// Update an existing series
         /// </summary>
         /// <param name="series">Series to update - Requires all properties of Data.Series object</param>
-        /// <returns>Data.Series</returns>
-        public async Task<Data.Series> UpdateSeries(Data.Series series)
+        /// <returns></returns>
+        public async Task<Models.Series> UpdateSeries(Models.Series series)
         {
             var json = await _sonarrClient.PostJson("/series", JsonConvert.SerializeObject(series), "PUT");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.Series>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
 
             return null;
         }
@@ -121,7 +117,7 @@ namespace SonarrSharp.Endpoints.Series
         /// </summary>
         /// <param name="id">Series ID</param>
         /// <param name="deleteFiles">If true the series folder and all files will be deleted when the series is deleted</param>
-        /// <returns>Nothing</returns>
+        /// <returns></returns>
         public async Task DeleteSeries(int id, [Optional] bool deleteFiles)
         {
             await _sonarrClient.Delete($"/series/id={id}{(deleteFiles ? $"?deleteFiles={deleteFiles}" : "")}");

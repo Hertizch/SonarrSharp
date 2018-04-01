@@ -23,13 +23,13 @@ namespace SonarrSharp.Endpoints.SystemBackup
         /// <summary>
         /// Returns the list of available backups
         /// </summary>
-        /// <returns>Data.SystemBackup[]</returns>
-        public async Task<Data.SystemBackup[]> GetSystemBackups()
+        /// <returns></returns>
+        public async Task<Models.SystemBackup[]> GetSystemBackups()
         {
             var json = await _sonarrClient.GetJson($"/system/backup");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Data.SystemBackup[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<Models.SystemBackup[]>(json, Converter.Settings);
 
             return null;
         }
