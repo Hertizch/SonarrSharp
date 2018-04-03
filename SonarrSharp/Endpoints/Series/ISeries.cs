@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Series
@@ -37,9 +36,9 @@ namespace SonarrSharp.Endpoints.Series
         /// <param name="tvRageId">TV Rage ID</param>
         /// <param name="seasonFolder">Use season folders</param>
         /// <param name="monitored">Is monitored</param>
-        /// <param name="addOptions">Object that contains three boolean properties; ignoreEpisodesWithFiles: Unmonitors any episodes with a file, ignoreEpisodesWithoutFiles: Unmonitors any episodes without a file, searchForMissingEpisodes: Searches for missing files after applying ignoreEpisodesWithFiles and ignoreEpisodesWithoutFiles</param>
+        /// <param name="addOptions">Object that contains three boolean properties - If supplied, all properties are required</param>
         /// <returns></returns>
-        Task<Models.Series> AddSeries(int tvdbId, string title, int qualityProfileId, string titleSlug, Models.Image[] images, Models.Season[] seasons, string rootFolderPath, [Optional] int tvRageId, [Optional] bool seasonFolder, [Optional] bool monitored, [Optional] Dictionary<string, bool> addOptions);
+        Task<Models.Series> AddSeries(int tvdbId, string title, int qualityProfileId, string titleSlug, Models.Image[] images, Models.Season[] seasons, string rootFolderPath, [Optional] int tvRageId, [Optional] bool seasonFolder, [Optional] bool monitored, [Optional] AddOptions addOptions);
 
         /// <summary>
         /// Update an existing series

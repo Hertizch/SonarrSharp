@@ -111,7 +111,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The protocol.
         /// </value>
-        [J("protocol")] public string Protocol { get; set; }
+        [J("protocol")] public Protocol Protocol { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.

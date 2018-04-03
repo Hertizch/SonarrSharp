@@ -15,12 +15,14 @@ namespace SonarrSharp.Helpers
             t == typeof(SeriesType) ||
             t == typeof(Status) ||
             t == typeof(SystemBackupType) ||
+            t == typeof(Protocol) ||
 
             t == typeof(Level?) ||
             t == typeof(CoverType?) ||
             t == typeof(SeriesType?) ||
             t == typeof(Status?) ||
-            t == typeof(SystemBackupType?
+            t == typeof(SystemBackupType?) ||
+            t == typeof(Protocol?
             );
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
@@ -35,6 +37,8 @@ namespace SonarrSharp.Helpers
                 return StatusExtensions.ReadJson(reader, serializer);
             if (t == typeof(SystemBackupType))
                 return SystemBackupTypeExtensions.ReadJson(reader, serializer);
+            if (t == typeof(Protocol))
+                return ProtocolExtensions.ReadJson(reader, serializer);
 
             if (t == typeof(Level?))
             {
@@ -61,6 +65,11 @@ namespace SonarrSharp.Helpers
                 if (reader.TokenType == JsonToken.Null) return null;
                 return SystemBackupTypeExtensions.ReadJson(reader, serializer);
             }
+            if (t == typeof(Protocol?))
+            {
+                if (reader.TokenType == JsonToken.Null) return null;
+                return ProtocolExtensions.ReadJson(reader, serializer);
+            }
 
             throw new Exception("Unknown type");
         }
@@ -68,6 +77,7 @@ namespace SonarrSharp.Helpers
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var t = value.GetType();
+
             if (t == typeof(Level))
             {
                 ((Level)value).WriteJson(writer, serializer);
@@ -91,6 +101,11 @@ namespace SonarrSharp.Helpers
             if (t == typeof(SystemBackupType))
             {
                 ((SystemBackupType)value).WriteJson(writer, serializer);
+                return;
+            }
+            if (t == typeof(Protocol))
+            {
+                ((Protocol)value).WriteJson(writer, serializer);
                 return;
             }
 
