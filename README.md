@@ -27,7 +27,7 @@ foreach (var item in series)
 }
 ```
 
-Get all epsiodes in a series:
+Get all episodes in a series:
 ```c#
 var episodes = await sonarrClient.Episode.GetEpisodes(123);
 foreach (var item in episodes)
