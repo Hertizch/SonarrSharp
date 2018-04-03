@@ -23,7 +23,7 @@ Get all series:
 var series = await sonarrClient.Series.GetSeries();
 foreach (var item in series)
 {
-    Console.WriteLine($"{serie.Title}");
+    Console.WriteLine($"{item.Title}");
 }
 ```
 
@@ -32,7 +32,7 @@ Get all episodes in a series:
 var episodes = await sonarrClient.Episode.GetEpisodes(123);
 foreach (var item in episodes)
 {
-    Console.WriteLine($"{item.Series.Title} - s{item.SeasonNumber}e{item.EpisodeNumber} - {item.Title}");
+    Console.WriteLine($"s{item.SeasonNumber}e{item.EpisodeNumber} - {item.Title}");
 }
 ```
 
