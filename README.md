@@ -21,9 +21,18 @@ var sonarrClient = new SonarrClient("127.0.0.1", 8989, "apiKey");
 Get all series:
 ```c#
 var series = await sonarrClient.Series.GetSeries();
-foreach (var serie in series)
+foreach (var item in series)
 {
     Console.WriteLine($"{serie.Title}");
+}
+```
+
+Get all episodes airing in the next 30 days:
+```c#
+var calendar = await sonarrClient.Calendar.GetCalendar(DateTime.Now, DateTime.Now.AddDays(30));
+foreach (var item in calendar)
+{
+    Console.WriteLine($"{item.AirDate}: {item.Series.Title} - s{item.SeasonNumber}e{item.EpisodeNumber} - {item.Title}");
 }
 ```
 
@@ -31,6 +40,6 @@ Search for all episodes in a series:
 ```c#
 var command = await.sonarrClient.Command.SeriesSearch(123);
 
-// Get status of command
+// Get status of this started command
 Console.WriteLine($"{command.Name}: {command.State}");
 ```
