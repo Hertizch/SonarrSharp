@@ -1,8 +1,8 @@
 # SonarrSharp
-C# Sonarr API wrapper. Still in a beta phase, all methods and properties are subject to change.
+C# Sonarr API wrapper.
 
 ## Compatibility
-.NET framework, .NET core and Xamarin
+Written as a .NET Standard library, so should be compatible with .NET framework, .NET core and Xamarin.
 
 ## Installation
 Available as a NuGet package:
@@ -24,6 +24,15 @@ var series = await sonarrClient.Series.GetSeries();
 foreach (var item in series)
 {
     Console.WriteLine($"{serie.Title}");
+}
+```
+
+Get all epsiodes in a series:
+```c#
+var episodes = await sonarrClient.Episode.GetEpisodes(123);
+foreach (var item in episodes)
+{
+    Console.WriteLine($"{item.Series.Title} - s{item.SeasonNumber}e{item.EpisodeNumber} - {item.Title}");
 }
 ```
 
