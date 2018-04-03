@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Queue
@@ -32,6 +33,17 @@ namespace SonarrSharp.Endpoints.Queue
                 return JsonConvert.DeserializeObject<Models.Queue[]>(json, Converter.Settings);
 
             return null;
+        }
+
+        /// <summary>
+        /// Deletes an item from the queue and download client. Optionally blacklist item after deletion.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="blacklist">if set to <c>true</c> [blacklist].</param>
+        /// <returns></returns>
+        public async Task DeleteFromQueue(int id, [Optional] bool blacklist)
+        {
+            await _sonarrClient.Delete($"/queue/id={id}{(blacklist ? $"?blacklist={blacklist}" : "")}");
         }
     }
 }
