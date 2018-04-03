@@ -12,6 +12,7 @@ namespace SonarrSharp.Extensions
             {
                 case "anime": return SeriesType.Anime;
                 case "standard": return SeriesType.Standard;
+                case "daily": return SeriesType.Daily;
                 default: return null;
             }
         }
@@ -30,6 +31,7 @@ namespace SonarrSharp.Extensions
             {
                 case SeriesType.Anime: serializer.Serialize(writer, "anime"); break;
                 case SeriesType.Standard: serializer.Serialize(writer, "standard"); break;
+                case SeriesType.Daily: serializer.Serialize(writer, "daily"); break;
             }
         }
     }

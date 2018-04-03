@@ -13,6 +13,11 @@
         /// <summary>
         /// The standard
         /// </summary>
-        Standard
+        Standard,
+
+        /// <summary>
+        /// The daily
+        /// </summary>
+        Daily
     };
 }

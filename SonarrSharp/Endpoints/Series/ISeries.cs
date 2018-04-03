@@ -51,7 +51,7 @@ namespace SonarrSharp.Endpoints.Series
         /// Delete the series with the given ID
         /// </summary>
         /// <param name="id">Series ID</param>
-        /// <param name="deleteFiles">If true the series folder and all files will be deleted when the series is deleted</param>
+        /// <param name="deleteFiles">if set to <c>true</c> the series folder and all files will be deleted when the series is deleted.</param>
         /// <returns></returns>
         Task DeleteSeries(int id, [Optional] bool deleteFiles);
     }

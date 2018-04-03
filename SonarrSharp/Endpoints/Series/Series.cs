@@ -78,11 +78,17 @@ namespace SonarrSharp.Endpoints.Series
                 ["titleSlug"] = titleSlug,
                 ["images"] = images,
                 ["seasons"] = seasons,
-                ["rootFolderPath"] = rootFolderPath,
-                ["tvRageId"] = tvRageId,
-                ["seasonFolder"] = seasonFolder,
-                ["monitored"] = monitored
+                ["rootFolderPath"] = rootFolderPath
             };
+
+            if (monitored)
+                dictionary.Add("monitored", monitored);
+
+            if (seasonFolder)
+                dictionary.Add("seasonFolder", seasonFolder);
+
+            if (tvRageId != 0)
+                dictionary.Add("tvRageId", tvRageId);
 
             if (addOptions != null)
                 dictionary.Add("addOptions", addOptions);
@@ -116,7 +122,7 @@ namespace SonarrSharp.Endpoints.Series
         /// Delete the series with the given ID
         /// </summary>
         /// <param name="id">Series ID</param>
-        /// <param name="deleteFiles">If true the series folder and all files will be deleted when the series is deleted</param>
+        /// <param name="deleteFiles">if set to <c>true</c> the series folder and all files will be deleted when the series is deleted.</param>
         /// <returns></returns>
         public async Task DeleteSeries(int id, [Optional] bool deleteFiles)
         {

@@ -36,10 +36,10 @@ namespace SonarrSharp.Endpoints.Queue
         }
 
         /// <summary>
-        /// Deletes an item from the queue and download client. Optionally blacklist item after deletion.
+        /// Deletes an item from the queue and download client.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="blacklist">if set to <c>true</c> [blacklist].</param>
+        /// <param name="blacklist">if set to <c>true</c> blacklist item after deletion.</param>
         /// <returns></returns>
         public async Task DeleteFromQueue(int id, [Optional] bool blacklist)
         {
