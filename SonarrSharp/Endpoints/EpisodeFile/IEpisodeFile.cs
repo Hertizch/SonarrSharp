@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.EpisodeFile
 {
@@ -12,7 +13,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        Task<Models.EpisodeFile[]> GetEpisodeFiles(int seriesId);
+        Task<IList<Models.EpisodeFile>> GetEpisodeFiles(int seriesId);
 
         /// <summary>
         /// Returns the episode file with the matching id

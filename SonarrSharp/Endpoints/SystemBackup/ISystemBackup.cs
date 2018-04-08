@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SystemBackup
 {
@@ -11,6 +12,6 @@ namespace SonarrSharp.Endpoints.SystemBackup
         /// Returns the list of available backups
         /// </summary>
         /// <returns></returns>
-        Task<Models.SystemBackup[]> GetSystemBackups();
+        Task<IList<Models.SystemBackup>> GetSystemBackups();
     }
 }

@@ -15,7 +15,7 @@ namespace SonarrSharpUnitTest
         {
             var obj = await _sonarrClient.Command.GetCommands();
 
-            CollectionAssert.AllItemsAreNotNull(obj);
+            Assert.IsNotNull(obj);
         }
     }
 }

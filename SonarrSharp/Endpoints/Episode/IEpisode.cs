@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Episode
 {
@@ -12,7 +13,7 @@ namespace SonarrSharp.Endpoints.Episode
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        Task<Models.Episode[]> GetEpisodes(int seriesId);
+        Task<IList<Models.Episode>> GetEpisodes(int seriesId);
 
         /// <summary>
         /// Returns the episode with the matching id

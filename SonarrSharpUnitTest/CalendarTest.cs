@@ -19,7 +19,7 @@ namespace SonarrSharpUnitTest
 
             var obj = await _sonarrClient.Calendar.GetCalendar(start, end);
 
-            CollectionAssert.AllItemsAreNotNull(obj);
+            Assert.IsNotNull(obj);
         }
     }
 }

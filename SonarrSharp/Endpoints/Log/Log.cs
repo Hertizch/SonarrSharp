@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
@@ -27,12 +28,12 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.LogFile[]> GetLogFiles()
+        public async Task<IList<Models.LogFile>> GetLogFiles()
         {
             var json = await _sonarrClient.GetJson($"/log/file");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.LogFile[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.LogFile>>(json, Converter.Settings);
 
             return null;
         }

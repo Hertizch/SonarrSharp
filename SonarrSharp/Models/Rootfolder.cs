@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Collections.Generic;
+using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
 {
@@ -29,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The unmapped folders.
         /// </value>
-        [J("unmappedFolders")] public object[] UnmappedFolders { get; set; }
+        [J("unmappedFolders")] public IList<object> UnmappedFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.

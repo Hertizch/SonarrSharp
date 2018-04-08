@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.ReleasePush
@@ -16,6 +17,6 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <param name="downloadProtocol">Download protocol, usenet or torrent</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        Task<Models.ReleasePush[]> PushRelease(string title, string downloadUrl, string downloadProtocol, DateTime date);
+        Task<IList<Models.ReleasePush>> PushRelease(string title, string downloadUrl, string downloadProtocol, DateTime date);
     }
 }

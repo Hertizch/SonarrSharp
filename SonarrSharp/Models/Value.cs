@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Collections.Generic;
+using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
 {
@@ -21,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The allowed.
         /// </value>
-        [J("allowed")] public Allowed[] Allowed { get; set; }
+        [J("allowed")] public IList<Allowed> Allowed { get; set; }
 
         /// <summary>
         /// Gets or sets the cutoff.

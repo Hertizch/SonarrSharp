@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
-using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.History
@@ -24,17 +24,21 @@ namespace SonarrSharp.Endpoints.History
         /// <summary>
         /// Gets history (grabs/failures/completed)
         /// </summary>
-        /// <param name="sortKey">Series title or Date</param>
-        /// <param name="page">Page</param>
-        /// <param name="pageSize">Page size</param>
-        /// <param name="sortDirection">Sort direction, asc or desc</param>
+        /// <param name="sortKey">Series title or Date - Default date</param>
+        /// <param name="page">Page - Default 1</param>
+        /// <param name="pageSize">Page size - Default 10</param>
+        /// <param name="sortDir">Sort direction, asc or desc - Default desc</param>
         /// <returns></returns>
-        public async Task<Models.History> GetHistory(string sortKey, [Optional] int page, [Optional] int pageSize, [Optional] string sortDirection)
+        public async Task<Models.History> GetHistory(string sortKey, int page = 1, int pageSize = 10, string sortDir = "default")
         {
-            var json = await _sonarrClient.GetJson($"/history?sortKey={sortKey}" +
-                $"{(page != 0 ? "&page=" + page : "")}" +
-                $"{(pageSize != 0 ? "&pageSize=" + pageSize : "")}" +
-                $"{(sortDirection != null ? "&sortDirection=" + sortDirection : "")}");
+            var sb = new StringBuilder();
+
+            sb.Append($"?sortKey={sortKey}");
+            sb.Append($"&page={page}");
+            sb.Append($"&pageSize={pageSize}");
+            sb.Append($"&sortDir={sortDir}");
+
+            var json = await _sonarrClient.GetJson($"/history{sb.ToString()}");
 
             if (!string.IsNullOrEmpty(json))
                 return JsonConvert.DeserializeObject<Models.History>(json, Converter.Settings);

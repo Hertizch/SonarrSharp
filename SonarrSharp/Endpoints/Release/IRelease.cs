@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Release
 {
@@ -12,13 +13,13 @@ namespace SonarrSharp.Endpoints.Release
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
         /// <returns></returns>
-        Task<Models.Release[]> GetReleases(int episodeId);
+        Task<IList<Models.Release>> GetReleases(int episodeId);
 
         /// <summary>
         /// Adds a previously searched release to the download client, if the release is still in Sonarr's search cache (30 minute cache)
         /// </summary>
         /// <param name="guid">Release GUID</param>
         /// <returns></returns>
-        Task<Models.Release[]> AddRelease(string guid);
+        Task<IList<Models.Release>> AddRelease(string guid);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Command
@@ -12,7 +13,7 @@ namespace SonarrSharp.Endpoints.Command
         /// Queries the status of all currently started commands.
         /// </summary>
         /// <returns></returns>
-        Task<Models.Command[]> GetCommands();
+        Task<IList<Models.Command>> GetCommands();
 
         /// <summary>
         /// Queries the status of a previously started command

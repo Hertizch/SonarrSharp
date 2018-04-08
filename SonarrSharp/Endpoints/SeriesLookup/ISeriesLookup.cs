@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SeriesLookup
 {
@@ -12,13 +13,13 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// </summary>
         /// <param name="title">Series title</param>
         /// <returns></returns>
-        Task<Models.SeriesLookup[]> SearchForSeries(string title);
+        Task<IList<Models.SeriesLookup>> SearchForSeries(string title);
 
         /// <summary>
         /// Searches for new shows on trakt
         /// </summary>
         /// <param name="tvdbId">TV Database ID number</param>
         /// <returns></returns>
-        Task<Models.SeriesLookup[]> SearchForSeries(int tvdbId);
+        Task<IList<Models.SeriesLookup>> SearchForSeries(int tvdbId);
     }
 }

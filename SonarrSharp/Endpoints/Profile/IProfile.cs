@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Profile
 {
@@ -11,6 +12,6 @@ namespace SonarrSharp.Endpoints.Profile
         /// Gets all quality profiles
         /// </summary>
         /// <returns></returns>
-        Task<Models.Profile[]> GetProfiles();
+        Task<IList<Models.Profile>> GetProfiles();
     }
 }

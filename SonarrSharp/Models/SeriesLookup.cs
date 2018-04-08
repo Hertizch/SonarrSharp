@@ -1,5 +1,6 @@
 ﻿using SonarrSharp.Enum;
 using System;
+using System.Collections.Generic;
 using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
@@ -71,7 +72,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public Image[] Images { get; set; }
+        [J("images")] public IList<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the remote poster.
@@ -87,7 +88,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The seasons.
         /// </value>
-        [J("seasons")] public Season[] Seasons { get; set; }
+        [J("seasons")] public IList<Season> Seasons { get; set; }
 
         /// <summary>
         /// Gets or sets the year.
@@ -215,7 +216,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The genres.
         /// </value>
-        [J("genres")] public string[] Genres { get; set; }
+        [J("genres")] public IList<string> Genres { get; set; }
 
         /// <summary>
         /// Gets or sets the tags.
@@ -223,7 +224,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tags.
         /// </value>
-        [J("tags")] public object[] Tags { get; set; }
+        [J("tags")] public IList<object> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the added.

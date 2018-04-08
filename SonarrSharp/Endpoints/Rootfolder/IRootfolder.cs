@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Rootfolder
 {
@@ -11,6 +12,6 @@ namespace SonarrSharp.Endpoints.Rootfolder
         /// Gets root folders
         /// </summary>
         /// <returns></returns>
-        Task<Models.Rootfolder[]> GetRootFolders();
+        Task<IList<Models.Rootfolder>> GetRootFolders();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SonarrSharp.Enum;
 using System;
+using System.Collections.Generic;
 using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
@@ -119,7 +120,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public Image[] Images { get; set; }
+        [J("images")] public IList<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the series.
@@ -191,7 +192,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The seasons.
         /// </value>
-        [J("seasons")] public Season[] Seasons { get; set; }
+        [J("seasons")] public IList<Season> Seasons { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.

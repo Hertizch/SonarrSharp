@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Diskspace
@@ -24,12 +25,12 @@ namespace SonarrSharp.Endpoints.Diskspace
         /// Gets information about Diskspace
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.Diskspace[]> GetDiskspace()
+        public async Task<IList<Models.Diskspace>> GetDiskspace()
         {
             var json = await _sonarrClient.GetJson("/diskspace");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Diskspace[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.Diskspace>>(json, Converter.Settings);
 
             return null;
         }

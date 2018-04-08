@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Calendar
@@ -12,7 +13,7 @@ namespace SonarrSharp.Endpoints.Calendar
         /// Gets upcoming episodes, if start/end are not supplied episodes airing today and tomorrow will be returned
         /// </summary>
         /// <returns></returns>
-        Task<Models.Calendar[]> GetCalendar();
+        Task<IList<Models.Calendar>> GetCalendar();
 
         /// <summary>
         /// Gets upcoming episodes, between the given time
@@ -20,6 +21,6 @@ namespace SonarrSharp.Endpoints.Calendar
         /// <param name="start">From date</param>
         /// <param name="end">To date</param>
         /// <returns></returns>
-        Task<Models.Calendar[]> GetCalendar(DateTime start, DateTime end);
+        Task<IList<Models.Calendar>> GetCalendar(DateTime start, DateTime end);
     }
 }

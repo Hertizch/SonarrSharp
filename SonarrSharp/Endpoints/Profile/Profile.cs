@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Profile
@@ -24,12 +25,12 @@ namespace SonarrSharp.Endpoints.Profile
         /// Gets all quality profiles
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.Profile[]> GetProfiles()
+        public async Task<IList<Models.Profile>> GetProfiles()
         {
             var json = await _sonarrClient.GetJson($"/profile");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Profile[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.Profile>>(json, Converter.Settings);
 
             return null;
         }

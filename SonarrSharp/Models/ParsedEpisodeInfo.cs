@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Collections.Generic;
+using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
 {
@@ -53,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public long[] EpisodeNumbers { get; set; }
+        [J("episodeNumbers")] public IList<long> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode numbers.
@@ -61,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The absolute episode numbers.
         /// </value>
-        [J("absoluteEpisodeNumbers")] public object[] AbsoluteEpisodeNumbers { get; set; }
+        [J("absoluteEpisodeNumbers")] public IList<object> AbsoluteEpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the language.

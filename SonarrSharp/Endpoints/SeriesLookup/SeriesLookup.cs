@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.SeriesLookup
@@ -25,12 +26,12 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// </summary>
         /// <param name="title">Series title</param>
         /// <returns></returns>
-        public async Task<Models.SeriesLookup[]> SearchForSeries(string title)
+        public async Task<IList<Models.SeriesLookup>> SearchForSeries(string title)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term={title.Replace(" ", "%20")}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.SeriesLookup[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings);
 
             return null;
         }
@@ -40,12 +41,12 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         /// </summary>
         /// <param name="tvdbId">TV Database ID number</param>
         /// <returns></returns>
-        public async Task<Models.SeriesLookup[]> SearchForSeries(int tvdbId)
+        public async Task<IList<Models.SeriesLookup>> SearchForSeries(int tvdbId)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term=tvdb:{tvdbId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.SeriesLookup[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings);
 
             return null;
         }

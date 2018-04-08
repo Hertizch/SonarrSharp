@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Diskspace
 {
@@ -11,6 +12,6 @@ namespace SonarrSharp.Endpoints.Diskspace
         /// Gets information about Diskspace
         /// </summary>
         /// <returns></returns>
-        Task<Models.Diskspace[]> GetDiskspace();
+        Task<IList<Models.Diskspace>> GetDiskspace();
     }
 }

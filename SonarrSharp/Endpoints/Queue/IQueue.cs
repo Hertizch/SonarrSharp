@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Queue
@@ -12,7 +13,7 @@ namespace SonarrSharp.Endpoints.Queue
         /// Gets currently downloading info
         /// </summary>
         /// <returns></returns>
-        Task<Models.Queue[]> GetQueue();
+        Task<IList<Models.Queue>> GetQueue();
 
         /// <summary>
         /// Deletes an item from the queue and download client. Optionally blacklist item after deletion.

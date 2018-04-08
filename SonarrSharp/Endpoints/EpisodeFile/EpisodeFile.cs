@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.EpisodeFile
@@ -25,12 +26,12 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        public async Task<Models.EpisodeFile[]> GetEpisodeFiles(int seriesId)
+        public async Task<IList<Models.EpisodeFile>> GetEpisodeFiles(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.EpisodeFile[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.EpisodeFile>>(json, Converter.Settings);
 
             return null;
         }

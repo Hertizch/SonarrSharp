@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
@@ -25,12 +26,12 @@ namespace SonarrSharp.Endpoints.Queue
         /// Gets currently downloading info
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.Queue[]> GetQueue()
+        public async Task<IList<Models.Queue>> GetQueue()
         {
             var json = await _sonarrClient.GetJson($"/queue");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Queue[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.Queue>>(json, Converter.Settings);
 
             return null;
         }

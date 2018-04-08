@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
@@ -110,7 +111,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public long[] EpisodeNumbers { get; set; }
+        [J("episodeNumbers")] public IList<long> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="ReleasePush"/> is approved.
@@ -134,7 +135,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The rejections.
         /// </value>
-        [J("rejections")] public string[] Rejections { get; set; }
+        [J("rejections")] public IList<string> Rejections { get; set; }
 
         /// <summary>
         /// Gets or sets the publish date.

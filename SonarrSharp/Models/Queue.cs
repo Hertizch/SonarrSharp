@@ -1,5 +1,6 @@
 ﻿using SonarrSharp.Enum;
 using System;
+using System.Collections.Generic;
 using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
@@ -95,7 +96,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The status messages.
         /// </value>
-        [J("statusMessages")] public object[] StatusMessages { get; set; }
+        [J("statusMessages")] public IList<object> StatusMessages { get; set; }
 
         /// <summary>
         /// Gets or sets the download identifier.

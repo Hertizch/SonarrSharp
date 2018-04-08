@@ -1,4 +1,5 @@
-﻿using J = Newtonsoft.Json.JsonPropertyAttribute;
+﻿using System.Collections.Generic;
+using J = Newtonsoft.Json.JsonPropertyAttribute;
 
 namespace SonarrSharp.Models
 {
@@ -53,6 +54,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The records.
         /// </value>
-        [J("records")] public Record[] Records { get; set; }
+        [J("records")] public IList<Record> Records { get; set; }
     }
 }

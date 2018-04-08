@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Series
@@ -13,7 +14,7 @@ namespace SonarrSharp.Endpoints.Series
         /// </summary>
         /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
         /// <returns></returns>
-        Task<Models.Series[]> GetSeries([Optional] bool includeSeasonImages);
+        Task<IList<Models.Series>> GetSeries([Optional] bool includeSeasonImages);
 
         /// <summary>
         /// Returns the series with the matching ID

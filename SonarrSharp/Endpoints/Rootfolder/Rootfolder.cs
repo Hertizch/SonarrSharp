@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using SonarrSharp.Helpers;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SonarrSharp.Endpoints.Rootfolder
@@ -24,12 +25,12 @@ namespace SonarrSharp.Endpoints.Rootfolder
         /// Gets root folders
         /// </summary>
         /// <returns></returns>
-        public async Task<Models.Rootfolder[]> GetRootFolders()
+        public async Task<IList<Models.Rootfolder>> GetRootFolders()
         {
             var json = await _sonarrClient.GetJson($"/rootfolder");
 
             if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Rootfolder[]>(json, Converter.Settings);
+                return JsonConvert.DeserializeObject<IList<Models.Rootfolder>>(json, Converter.Settings);
 
             return null;
         }

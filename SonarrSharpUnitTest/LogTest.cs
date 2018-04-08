@@ -16,7 +16,7 @@ namespace SonarrSharpUnitTest
         {
             var obj = await _sonarrClient.Log.GetLogFiles();
 
-            CollectionAssert.AllItemsAreNotNull(obj);
+            Assert.IsNotNull(obj);
         }
 
         [TestMethod]
