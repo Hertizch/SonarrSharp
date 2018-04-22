@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.Queue
         public async Task<IList<Models.Queue>> GetQueue()
         {
             var json = await _sonarrClient.GetJson($"/queue");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Queue>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Queue>>(json, Converter.Settings));
         }
 
         /// <summary>

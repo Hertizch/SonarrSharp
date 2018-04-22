@@ -30,11 +30,7 @@ namespace SonarrSharp.Endpoints.Series
         public async Task<IList<Models.Series>> GetSeries([Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Series>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Series>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -46,11 +42,7 @@ namespace SonarrSharp.Endpoints.Series
         public async Task<Models.Series> GetSeries(int seriesId, [Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series/id={seriesId}{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -96,11 +88,7 @@ namespace SonarrSharp.Endpoints.Series
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>(dictionary));
 
             var json = await _sonarrClient.PostJson("/series", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -110,12 +98,8 @@ namespace SonarrSharp.Endpoints.Series
         /// <returns></returns>
         public async Task<Models.Series> UpdateSeries(Models.Series series)
         {
-            var json = await _sonarrClient.PostJson("/series", JsonConvert.SerializeObject(series), "PUT");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings);
-
-            return null;
+            var json = await _sonarrClient.PostJson("/series", JsonConvert.SerializeObject(series, Converter.Settings), "PUT");
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Series>(json, Converter.Settings));
         }
 
         /// <summary>

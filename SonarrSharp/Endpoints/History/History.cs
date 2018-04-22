@@ -32,18 +32,13 @@ namespace SonarrSharp.Endpoints.History
         public async Task<Models.History> GetHistory(string sortKey, int page = 1, int pageSize = 10, string sortDir = "default")
         {
             var sb = new StringBuilder();
-
             sb.Append($"?sortKey={sortKey}");
             sb.Append($"&page={page}");
             sb.Append($"&pageSize={pageSize}");
             sb.Append($"&sortDir={sortDir}");
 
             var json = await _sonarrClient.GetJson($"/history{sb.ToString()}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.History>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.History>(json, Converter.Settings));
         }
     }
 }

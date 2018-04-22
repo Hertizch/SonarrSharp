@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Log
 {
     /// <summary>
-    /// 
+    /// Log endpoint client
     /// </summary>
     public interface ILog
     {

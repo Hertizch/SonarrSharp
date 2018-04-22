@@ -28,11 +28,7 @@ namespace SonarrSharp.Endpoints.Parse
         public async Task<Models.Parse> ParseTitle(string title)
         {
             var json = await _sonarrClient.GetJson($"/parse?title={title}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -43,11 +39,7 @@ namespace SonarrSharp.Endpoints.Parse
         public async Task<Models.Parse> ParsePath(string path)
         {
             var json = await _sonarrClient.GetJson($"/parse?path={path}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Parse>(json, Converter.Settings));
         }
     }
 }

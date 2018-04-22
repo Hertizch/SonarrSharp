@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.Calendar
         public async Task<IList<Models.Calendar>> GetCalendar()
         {
             var json = await _sonarrClient.GetJson($"/calendar");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -45,11 +41,7 @@ namespace SonarrSharp.Endpoints.Calendar
         public async Task<IList<Models.Calendar>> GetCalendar(DateTime start, DateTime end)
         {
             var json = await _sonarrClient.GetJson($"/calendar?start={start.ToString("yyyy-MM-dd")}&end={end.ToString("yyyy-MM-dd")}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
         }
     }
 }

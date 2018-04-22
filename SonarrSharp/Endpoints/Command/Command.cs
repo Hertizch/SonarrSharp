@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.Command
         public async Task<IList<Models.Command>> GetCommands()
         {
             var json = await _sonarrClient.GetJson($"/command");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Command>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Command>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -44,11 +40,7 @@ namespace SonarrSharp.Endpoints.Command
         public async Task<Models.Command> GetCommand(int id)
         {
             var json = await _sonarrClient.GetJson($"/command/{id}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -65,11 +57,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -86,11 +74,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -107,11 +91,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -130,11 +110,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -150,11 +126,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -168,11 +140,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -188,11 +156,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -208,11 +172,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -226,11 +186,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -244,11 +200,7 @@ namespace SonarrSharp.Endpoints.Command
             });
 
             var json = await _sonarrClient.PostJson("/command", parameter, "POST");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Command>(json, Converter.Settings));
         }
     }
 }

@@ -28,11 +28,7 @@ namespace SonarrSharp.Endpoints.Rootfolder
         public async Task<IList<Models.Rootfolder>> GetRootFolders()
         {
             var json = await _sonarrClient.GetJson($"/rootfolder");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Rootfolder>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Rootfolder>>(json, Converter.Settings));
         }
     }
 }

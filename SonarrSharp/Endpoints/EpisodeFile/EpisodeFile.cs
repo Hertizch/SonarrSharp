@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         public async Task<IList<Models.EpisodeFile>> GetEpisodeFiles(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.EpisodeFile>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.EpisodeFile>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -44,11 +40,7 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         public async Task<Models.EpisodeFile> GetEpisodeFile(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile/id={episodeId}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.EpisodeFile>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.EpisodeFile>(json, Converter.Settings));
         }
 
         /// <summary>

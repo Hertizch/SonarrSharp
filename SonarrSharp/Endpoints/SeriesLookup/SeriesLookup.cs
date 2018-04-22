@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         public async Task<IList<Models.SeriesLookup>> SearchForSeries(string title)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term={title.Replace(" ", "%20")}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -44,11 +40,7 @@ namespace SonarrSharp.Endpoints.SeriesLookup
         public async Task<IList<Models.SeriesLookup>> SearchForSeries(int tvdbId)
         {
             var json = await _sonarrClient.GetJson($"/series/lookup?term=tvdb:{tvdbId}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.SeriesLookup>>(json, Converter.Settings));
         }
     }
 }

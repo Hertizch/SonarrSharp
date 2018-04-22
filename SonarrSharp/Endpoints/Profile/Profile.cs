@@ -28,11 +28,7 @@ namespace SonarrSharp.Endpoints.Profile
         public async Task<IList<Models.Profile>> GetProfiles()
         {
             var json = await _sonarrClient.GetJson($"/profile");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Profile>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Profile>>(json, Converter.Settings));
         }
     }
 }

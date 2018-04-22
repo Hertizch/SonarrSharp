@@ -28,11 +28,7 @@ namespace SonarrSharp.Endpoints.SystemBackup
         public async Task<IList<Models.SystemBackup>> GetSystemBackups()
         {
             var json = await _sonarrClient.GetJson($"/system/backup");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.SystemBackup>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.SystemBackup>>(json, Converter.Settings));
         }
     }
 }

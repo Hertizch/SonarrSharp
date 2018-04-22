@@ -29,11 +29,7 @@ namespace SonarrSharp.Endpoints.Episode
         public async Task<IList<Models.Episode>> GetEpisodes(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episode?seriesId={seriesId}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Episode>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Episode>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -44,11 +40,7 @@ namespace SonarrSharp.Endpoints.Episode
         public async Task<Models.Episode> GetEpisode(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/episode/id={episodeId}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -59,11 +51,7 @@ namespace SonarrSharp.Endpoints.Episode
         public async Task<Models.Episode> UpdateEpisode(Models.Episode episode)
         {
             var json = await _sonarrClient.PostJson("/command", JsonConvert.SerializeObject(episode), "PUT");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
         }
     }
 }

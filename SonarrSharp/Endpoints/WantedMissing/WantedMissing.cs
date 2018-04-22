@@ -35,11 +35,7 @@ namespace SonarrSharp.Endpoints.WantedMissing
                 $"{(page != 0 ? "&page=" + page : "")}" +
                 $"{(pageSize != 0 ? "&pageSize=" + pageSize : "")}" +
                 $"{(sortDirection != null ? "&sortDirection=" + sortDirection : "")}");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.WantedMissing>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.WantedMissing>(json, Converter.Settings));
         }
     }
 }

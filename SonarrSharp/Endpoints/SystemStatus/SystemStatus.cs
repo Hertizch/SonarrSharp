@@ -27,11 +27,7 @@ namespace SonarrSharp.Endpoints.SystemStatus
         public async Task<Models.SystemStatus> GetSystemStatus()
         {
             var json = await _sonarrClient.GetJson("/system/status");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.SystemStatus>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.SystemStatus>(json, Converter.Settings));
         }
     }
 }

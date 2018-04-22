@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SonarrSharp.Endpoints.Log
 {
     /// <summary>
-    /// 
+    /// Log endpoint client
     /// </summary>
     public class Log : ILog
     {
@@ -30,12 +30,8 @@ namespace SonarrSharp.Endpoints.Log
         /// <returns></returns>
         public async Task<IList<Models.LogFile>> GetLogFiles()
         {
-            var json = await _sonarrClient.GetJson($"/log/file");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.LogFile>>(json, Converter.Settings);
-
-            return null;
+            var json = await _sonarrClient.GetJson("/log/file");
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.LogFile>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -59,10 +55,7 @@ namespace SonarrSharp.Endpoints.Log
                 }
             }
 
-            if (!string.IsNullOrEmpty(logFile))
-                return logFile;
-
-            return null;
+            return logFile;
         }
 
         /// <summary>
@@ -71,12 +64,8 @@ namespace SonarrSharp.Endpoints.Log
         /// <returns></returns>
         public async Task<Models.Log> GetLog()
         {
-            var json = await _sonarrClient.GetJson($"/log");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<Models.Log>(json, Converter.Settings);
-
-            return null;
+            var json = await _sonarrClient.GetJson("/log");
+            return await Task.Run(() => JsonConvert.DeserializeObject<Models.Log>(json, Converter.Settings));
         }
     }
 }

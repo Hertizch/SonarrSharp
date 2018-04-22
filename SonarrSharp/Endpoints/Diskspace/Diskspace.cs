@@ -28,11 +28,7 @@ namespace SonarrSharp.Endpoints.Diskspace
         public async Task<IList<Models.Diskspace>> GetDiskspace()
         {
             var json = await _sonarrClient.GetJson("/diskspace");
-
-            if (!string.IsNullOrEmpty(json))
-                return JsonConvert.DeserializeObject<IList<Models.Diskspace>>(json, Converter.Settings);
-
-            return null;
+            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Diskspace>>(json, Converter.Settings));
         }
     }
 }
