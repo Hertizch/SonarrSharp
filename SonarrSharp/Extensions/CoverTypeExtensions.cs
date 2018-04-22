@@ -11,7 +11,7 @@ namespace SonarrSharp.Extensions
             switch (str)
             {
                 case "banner": return CoverType.Banner;
-                case "fanart": return CoverType.Fanart;
+                case "fanart": return CoverType.FanArt;
                 case "poster": return CoverType.Poster;
                 default: return null;
             }
@@ -30,7 +30,7 @@ namespace SonarrSharp.Extensions
             switch (value)
             {
                 case CoverType.Banner: serializer.Serialize(writer, "banner"); break;
-                case CoverType.Fanart: serializer.Serialize(writer, "fanart"); break;
+                case CoverType.FanArt: serializer.Serialize(writer, "fanart"); break;
                 case CoverType.Poster: serializer.Serialize(writer, "poster"); break;
             }
         }

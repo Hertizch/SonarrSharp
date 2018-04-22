@@ -11,9 +11,9 @@
         Banner,
 
         /// <summary>
-        /// The fanart
+        /// The fan art
         /// </summary>
-        Fanart,
+        FanArt,
 
         /// <summary>
         /// The poster

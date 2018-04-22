@@ -50,7 +50,7 @@ namespace SonarrSharp.Endpoints.Episode
         /// <returns></returns>
         public async Task<Models.Episode> UpdateEpisode(Models.Episode episode)
         {
-            var json = await _sonarrClient.PostJson("/command", JsonConvert.SerializeObject(episode), "PUT");
+            var json = await _sonarrClient.PostJson("/command", JsonConvert.SerializeObject(episode, Converter.Settings), "PUT");
             return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
         }
     }
