@@ -6,7 +6,7 @@ namespace SonarrSharp.Models
     /// <summary>
     /// 
     /// </summary>
-    public partial class WantedMissing
+    public partial class Wanted
     {
         /// <summary>
         /// Gets or sets the page.

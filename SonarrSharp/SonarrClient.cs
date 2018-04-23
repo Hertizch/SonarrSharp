@@ -15,7 +15,7 @@ using SonarrSharp.Endpoints.Series;
 using SonarrSharp.Endpoints.SeriesLookup;
 using SonarrSharp.Endpoints.SystemBackup;
 using SonarrSharp.Endpoints.SystemStatus;
-using SonarrSharp.Endpoints.WantedMissing;
+using SonarrSharp.Endpoints.Wanted;
 using SonarrSharp.Helpers;
 using System;
 using System.Diagnostics;
@@ -62,7 +62,7 @@ namespace SonarrSharp
             Episode = new Episode(this);
             EpisodeFile = new EpisodeFile(this);
             History = new History(this);
-            WantedMissing = new WantedMissing(this);
+            Wanted = new Wanted(this);
             Queue = new Queue(this);
             Parse = new Parse(this);
             Profile = new Profile(this);
@@ -163,9 +163,9 @@ namespace SonarrSharp
         public IHistory History { get; }
 
         /// <summary>
-        /// WnatedMissing endpoint client
+        /// Wnated endpoint client
         /// </summary>
-        public IWantedMissing WantedMissing { get; }
+        public IWanted Wanted { get; }
 
         /// <summary>
         /// Queue endpoint client
