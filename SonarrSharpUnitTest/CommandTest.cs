@@ -17,5 +17,13 @@ namespace SonarrSharpUnitTest
 
             Assert.IsNotNull(obj);
         }
+
+        [TestMethod]
+        public async Task GetCutoffUnmet()
+        {
+            var obj = await _sonarrClient.Wanted.GetCutoffUnmet("title", 1, 5);
+
+            Assert.IsNotNull(obj);
+        }
     }
 }

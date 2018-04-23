@@ -7,6 +7,7 @@ using SonarrSharp.Endpoints.History;
 using SonarrSharp.Endpoints.Log;
 using SonarrSharp.Endpoints.Parse;
 using SonarrSharp.Endpoints.Profile;
+using SonarrSharp.Endpoints.QualityDefinition;
 using SonarrSharp.Endpoints.Queue;
 using SonarrSharp.Endpoints.Release;
 using SonarrSharp.Endpoints.ReleasePush;
@@ -74,6 +75,7 @@ namespace SonarrSharp
             SystemStatus = new SystemStatus(this);
             SystemBackup = new SystemBackup(this);
             Log = new Log(this);
+            QualityDefinition = new QualityDefinition(this);
         }
 
         /// <summary>
@@ -135,92 +137,154 @@ namespace SonarrSharp
         /// <summary>
         /// Calendar endpoint client
         /// </summary>
+        /// <value>
+        /// The calendar.
+        /// </value>
         public ICalendar Calendar { get; }
 
         /// <summary>
         /// Command endpoint client
         /// </summary>
+        /// <value>
+        /// The command.
+        /// </value>
         public ICommand Command { get; }
 
         /// <summary>
         /// Diskspace endpoint client
         /// </summary>
+        /// <value>
+        /// The diskspace.
+        /// </value>
         public IDiskspace Diskspace { get; }
 
         /// <summary>
         /// Episode endpoint client
         /// </summary>
+        /// <value>
+        /// The episode.
+        /// </value>
         public IEpisode Episode { get; }
 
         /// <summary>
         /// EpisodeFile endpoint client
         /// </summary>
+        /// <value>
+        /// The episode file.
+        /// </value>
         public IEpisodeFile EpisodeFile { get; }
 
         /// <summary>
         /// History endpoint client
         /// </summary>
+        /// <value>
+        /// The history.
+        /// </value>
         public IHistory History { get; }
 
         /// <summary>
         /// Wnated endpoint client
         /// </summary>
+        /// <value>
+        /// The wanted.
+        /// </value>
         public IWanted Wanted { get; }
 
         /// <summary>
         /// Queue endpoint client
         /// </summary>
+        /// <value>
+        /// The queue.
+        /// </value>
         public IQueue Queue { get; }
 
         /// <summary>
         /// Parse endpoint client
         /// </summary>
+        /// <value>
+        /// The parse.
+        /// </value>
         public IParse Parse { get; }
 
         /// <summary>
         /// Profile endpoint client
         /// </summary>
+        /// <value>
+        /// The profile.
+        /// </value>
         public IProfile Profile { get; }
 
         /// <summary>
         /// Release endpoint client
         /// </summary>
+        /// <value>
+        /// The release.
+        /// </value>
         public IRelease Release { get; }
 
         /// <summary>
         /// ReleasePush endpoint client
         /// </summary>
+        /// <value>
+        /// The release push.
+        /// </value>
         public IReleasePush ReleasePush { get; }
 
         /// <summary>
         /// RootFolder endpoint client
         /// </summary>
+        /// <value>
+        /// The rootfolder.
+        /// </value>
         public IRootfolder Rootfolder { get; }
 
         /// <summary>
         /// Series endpoint client
         /// </summary>
+        /// <value>
+        /// The series.
+        /// </value>
         public ISeries Series { get; }
 
         /// <summary>
         /// SeriesLookup endpoint client
         /// </summary>
+        /// <value>
+        /// The series lookup.
+        /// </value>
         public ISeriesLookup SeriesLookup { get; }
 
         /// <summary>
         /// SystemStatus endpoint client
         /// </summary>
+        /// <value>
+        /// The system status.
+        /// </value>
         public ISystemStatus SystemStatus { get; }
 
         /// <summary>
         /// SystemBackup endpoint client
         /// </summary>
+        /// <value>
+        /// The system backup.
+        /// </value>
         public ISystemBackup SystemBackup { get; }
 
         /// <summary>
         /// Log endpoint client
         /// </summary>
+        /// <value>
+        /// The log.
+        /// </value>
         public ILog Log { get; }
+
+        /// <summary>
+        /// QualityDefinition endpoint client
+        /// </summary>
+        /// <value>
+        /// The quality definition.
+        /// </value>
+        public IQualityDefinition QualityDefinition { get; }
 
         /// <summary>
         /// Gets the GET response as a json formatted string
