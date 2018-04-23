@@ -16,14 +16,15 @@ namespace SonarrSharp.Helpers
             t == typeof(Status) ||
             t == typeof(SystemBackupType) ||
             t == typeof(Protocol) ||
+            t == typeof(QualityName) ||
 
             t == typeof(Level?) ||
             t == typeof(CoverType?) ||
             t == typeof(SeriesType?) ||
             t == typeof(Status?) ||
             t == typeof(SystemBackupType?) ||
-            t == typeof(Protocol?
-            );
+            t == typeof(Protocol?) ||
+            t == typeof(QualityName?);
 
         public override object ReadJson(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)
         {
@@ -39,6 +40,8 @@ namespace SonarrSharp.Helpers
                 return SystemBackupTypeExtensions.ReadJson(reader, serializer);
             if (t == typeof(Protocol))
                 return ProtocolExtensions.ReadJson(reader, serializer);
+            if (t == typeof(QualityName))
+                return QualityNameExtensions.ReadJson(reader, serializer);
 
             if (t == typeof(Level?))
             {
@@ -69,6 +72,11 @@ namespace SonarrSharp.Helpers
             {
                 if (reader.TokenType == JsonToken.Null) return null;
                 return ProtocolExtensions.ReadJson(reader, serializer);
+            }
+            if (t == typeof(QualityName?))
+            {
+                if (reader.TokenType == JsonToken.Null) return null;
+                return QualityNameExtensions.ReadJson(reader, serializer);
             }
 
             throw new Exception("Unknown type");
@@ -106,6 +114,11 @@ namespace SonarrSharp.Helpers
             if (t == typeof(Protocol))
             {
                 ((Protocol)value).WriteJson(writer, serializer);
+                return;
+            }
+            if (t == typeof(QualityName))
+            {
+                ((QualityName)value).WriteJson(writer, serializer);
                 return;
             }
 
