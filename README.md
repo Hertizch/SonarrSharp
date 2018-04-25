@@ -5,7 +5,7 @@ C# [Sonarr](https://sonarr.tv/) API wrapper.
 Written as a .NET Standard library, so should be compatible with .NET framework, .NET core and Xamarin.
 
 ## Installation
-Available as a NuGet package:
+Available as a [NuGet](https://www.nuget.org/packages/SonarrSharp/) package:
 ```
 PM> Install-Package SonarrSharp
 ```
