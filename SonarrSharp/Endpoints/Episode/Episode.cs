@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.Episode
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        public async Task<IList<Models.Episode>> GetEpisodes(int seriesId)
+        public async Task<List<Models.Episode>> GetEpisodes(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episode?seriesId={seriesId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Episode>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Episode>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace SonarrSharp.Endpoints.Episode
         /// <returns></returns>
         public async Task<Models.Episode> UpdateEpisode(Models.Episode episode)
         {
-            var json = await _sonarrClient.PostJson("/command", JsonConvert.SerializeObject(episode, Converter.Settings), "PUT");
+            var json = await _sonarrClient.PostJson("/episode", JsonConvert.SerializeObject(episode, Converter.Settings), "PUT");
             return await Task.Run(() => JsonConvert.DeserializeObject<Models.Episode>(json, Converter.Settings));
         }
     }

@@ -12,6 +12,6 @@ namespace SonarrSharp.Endpoints.Diskspace
         /// Gets information about Diskspace
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.Diskspace>> GetDiskspace();
+        Task<List<Models.Diskspace>> GetDiskspace();
     }
 }

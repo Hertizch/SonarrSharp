@@ -25,10 +25,10 @@ namespace SonarrSharp.Endpoints.Profile
         /// Gets all quality profiles
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.Profile>> GetProfiles()
+        public async Task<List<Models.Profile>> GetProfiles()
         {
             var json = await _sonarrClient.GetJson($"/profile");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Profile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Profile>>(json, Converter.Settings));
         }
     }
 }

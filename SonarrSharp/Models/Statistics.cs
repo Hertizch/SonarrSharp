@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode file count.
         /// </value>
-        [J("episodeFileCount")] public long EpisodeFileCount { get; set; }
+        [J("episodeFileCount")] public int EpisodeFileCount { get; set; }
 
         /// <summary>
         /// Gets or sets the episode count.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode count.
         /// </value>
-        [J("episodeCount")] public long EpisodeCount { get; set; }
+        [J("episodeCount")] public int EpisodeCount { get; set; }
 
         /// <summary>
         /// Gets or sets the total episode count.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The total episode count.
         /// </value>
-        [J("totalEpisodeCount")] public long TotalEpisodeCount { get; set; }
+        [J("totalEpisodeCount")] public int TotalEpisodeCount { get; set; }
 
         /// <summary>
         /// Gets or sets the size on disk.
@@ -54,6 +54,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The percent of episodes.
         /// </value>
-        [J("percentOfEpisodes")] public long PercentOfEpisodes { get; set; }
+        [J("percentOfEpisodes")] public double PercentOfEpisodes { get; set; }
     }
 }

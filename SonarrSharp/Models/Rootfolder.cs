@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The unmapped folders.
         /// </value>
-        [J("unmappedFolders")] public IList<object> UnmappedFolders { get; set; }
+        [J("unmappedFolders")] public List<object> UnmappedFolders { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

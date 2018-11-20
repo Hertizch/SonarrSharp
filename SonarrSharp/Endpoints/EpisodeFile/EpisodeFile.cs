@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.EpisodeFile
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        public async Task<IList<Models.EpisodeFile>> GetEpisodeFiles(int seriesId)
+        public async Task<List<Models.EpisodeFile>> GetEpisodeFiles(int seriesId)
         {
             var json = await _sonarrClient.GetJson($"/episodeFile?seriesId={seriesId}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.EpisodeFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.EpisodeFile>>(json, Converter.Settings));
         }
 
         /// <summary>

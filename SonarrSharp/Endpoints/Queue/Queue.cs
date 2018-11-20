@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.Queue
         /// Gets currently downloading info
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.Queue>> GetQueue()
+        public async Task<List<Models.Queue>> GetQueue()
         {
             var json = await _sonarrClient.GetJson($"/queue");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Queue>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Queue>>(json, Converter.Settings));
         }
 
         /// <summary>

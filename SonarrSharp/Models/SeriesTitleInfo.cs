@@ -29,6 +29,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public long Year { get; set; }
+        [J("year")] public int Year { get; set; }
     }
 }

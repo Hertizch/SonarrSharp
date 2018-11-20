@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Season"/> is monitored.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public IList<Image> Images { get; set; }
+        [J("images")] public List<Image> Images { get; set; }
     }
 }

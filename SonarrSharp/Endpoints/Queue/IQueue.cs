@@ -13,7 +13,7 @@ namespace SonarrSharp.Endpoints.Queue
         /// Gets currently downloading info
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.Queue>> GetQueue();
+        Task<List<Models.Queue>> GetQueue();
 
         /// <summary>
         /// Deletes an item from the queue and download client. Optionally blacklist item after deletion.

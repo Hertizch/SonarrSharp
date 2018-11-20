@@ -21,6 +21,6 @@ namespace SonarrSharp.Endpoints.Series.Data
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
     }
 }

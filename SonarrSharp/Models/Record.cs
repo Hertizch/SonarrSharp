@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode identifier.
         /// </value>
-        [J("episodeId")] public long EpisodeId { get; set; }
+        [J("episodeId")] public int EpisodeId { get; set; }
 
         /// <summary>
         /// Gets or sets the series identifier.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public long SeriesId { get; set; }
+        [J("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the source title.
@@ -102,6 +102,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public long SeriesId { get; set; }
+        [J("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the path.
@@ -70,6 +70,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

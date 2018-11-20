@@ -96,7 +96,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The status messages.
         /// </value>
-        [J("statusMessages")] public IList<object> StatusMessages { get; set; }
+        [J("statusMessages")] public List<object> StatusMessages { get; set; }
 
         /// <summary>
         /// Gets or sets the download identifier.
@@ -120,6 +120,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

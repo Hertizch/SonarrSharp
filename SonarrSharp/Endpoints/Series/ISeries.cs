@@ -14,7 +14,7 @@ namespace SonarrSharp.Endpoints.Series
         /// </summary>
         /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
         /// <returns></returns>
-        Task<IList<Models.Series>> GetSeries([Optional] bool includeSeasonImages);
+        Task<List<Models.Series>> GetSeries([Optional] bool includeSeasonImages);
 
         /// <summary>
         /// Returns the series with the matching ID

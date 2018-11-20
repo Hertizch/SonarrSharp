@@ -12,7 +12,7 @@ namespace SonarrSharp.Endpoints.QualityDefinition
         /// Returns all quality definitions
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.QualityDefinition>> GetQualityDefinitions();
+        Task<List<Models.QualityDefinition>> GetQualityDefinitions();
 
         /// <summary>
         /// Returns specific quality definition based on given id

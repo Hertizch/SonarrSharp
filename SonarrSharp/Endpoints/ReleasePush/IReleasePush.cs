@@ -18,6 +18,6 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <param name="protocol">Download protocol</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        Task<IList<Models.ReleasePush>> PushRelease(string title, string downloadUrl, Protocol protocol, DateTime date);
+        Task<List<Models.ReleasePush>> PushRelease(string title, string downloadUrl, Protocol protocol, DateTime date);
     }
 }

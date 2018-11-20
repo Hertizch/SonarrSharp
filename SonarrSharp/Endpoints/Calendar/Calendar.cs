@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.Calendar
         /// Gets upcoming episodes, if start/end are not supplied episodes airing today and tomorrow will be returned
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.Calendar>> GetCalendar()
+        public async Task<List<Models.Calendar>> GetCalendar()
         {
             var json = await _sonarrClient.GetJson($"/calendar");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Calendar>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -38,10 +38,10 @@ namespace SonarrSharp.Endpoints.Calendar
         /// <param name="start">From date</param>
         /// <param name="end">To date</param>
         /// <returns></returns>
-        public async Task<IList<Models.Calendar>> GetCalendar(DateTime start, DateTime end)
+        public async Task<List<Models.Calendar>> GetCalendar(DateTime start, DateTime end)
         {
             var json = await _sonarrClient.GetJson($"/calendar?start={start.ToString("yyyy-MM-dd")}&end={end.ToString("yyyy-MM-dd")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Calendar>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Calendar>>(json, Converter.Settings));
         }
     }
 }

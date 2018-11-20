@@ -12,6 +12,6 @@ namespace SonarrSharp.Endpoints.Profile
         /// Gets all quality profiles
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.Profile>> GetProfiles();
+        Task<List<Models.Profile>> GetProfiles();
     }
 }

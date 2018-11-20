@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episodes.
         /// </value>
-        [J("episodes")] public IList<Episode> Episodes { get; set; }
+        [J("episodes")] public List<Episode> Episodes { get; set; }
     }
 }

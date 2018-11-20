@@ -126,7 +126,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The start of week.
         /// </value>
-        [J("startOfWeek")] public long StartOfWeek { get; set; }
+        [J("startOfWeek")] public int StartOfWeek { get; set; }
 
         /// <summary>
         /// Gets or sets the URL base.

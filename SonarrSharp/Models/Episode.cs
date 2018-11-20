@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The series identifier.
         /// </value>
-        [J("seriesId")] public long SeriesId { get; set; }
+        [J("seriesId")] public int SeriesId { get; set; }
 
         /// <summary>
         /// Gets or sets the episode file identifier.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode file identifier.
         /// </value>
-        [J("episodeFileId")] public long EpisodeFileId { get; set; }
+        [J("episodeFileId")] public int EpisodeFileId { get; set; }
 
         /// <summary>
         /// Gets or sets the season number.
@@ -30,7 +30,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the episode number.
@@ -38,7 +38,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode number.
         /// </value>
-        [J("episodeNumber")] public long EpisodeNumber { get; set; }
+        [J("episodeNumber")] public int EpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the title.
@@ -94,7 +94,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The scene episode number.
         /// </value>
-        [J("sceneEpisodeNumber")] public long SceneEpisodeNumber { get; set; }
+        [J("sceneEpisodeNumber")] public int SceneEpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the scene season number.
@@ -102,7 +102,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The scene season number.
         /// </value>
-        [J("sceneSeasonNumber")] public long SceneSeasonNumber { get; set; }
+        [J("sceneSeasonNumber")] public int SceneSeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the tv database episode identifier.
@@ -110,7 +110,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tv database episode identifier.
         /// </value>
-        [J("tvDbEpisodeId")] public long TvDbEpisodeId { get; set; }
+        [J("tvDbEpisodeId")] public int TvDbEpisodeId { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode number.
@@ -118,7 +118,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The absolute episode number.
         /// </value>
-        [J("absoluteEpisodeNumber")] public long AbsoluteEpisodeNumber { get; set; }
+        [J("absoluteEpisodeNumber")] public int AbsoluteEpisodeNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -126,6 +126,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

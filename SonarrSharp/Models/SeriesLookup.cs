@@ -32,7 +32,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season count.
         /// </value>
-        [J("seasonCount")] public long SeasonCount { get; set; }
+        [J("seasonCount")] public int SeasonCount { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
@@ -72,7 +72,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public IList<Image> Images { get; set; }
+        [J("images")] public List<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the remote poster.
@@ -88,7 +88,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The seasons.
         /// </value>
-        [J("seasons")] public IList<Season> Seasons { get; set; }
+        [J("seasons")] public List<Season> Seasons { get; set; }
 
         /// <summary>
         /// Gets or sets the year.
@@ -96,7 +96,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public long Year { get; set; }
+        [J("year")] public int Year { get; set; }
 
         /// <summary>
         /// Gets or sets the profile identifier.
@@ -104,7 +104,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The profile identifier.
         /// </value>
-        [J("profileId")] public long ProfileId { get; set; }
+        [J("profileId")] public int ProfileId { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether [season folder].
@@ -144,7 +144,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The TVDB identifier.
         /// </value>
-        [J("tvdbId")] public long TvdbId { get; set; }
+        [J("tvdbId")] public int TvdbId { get; set; }
 
         /// <summary>
         /// Gets or sets the tv rage identifier.
@@ -216,7 +216,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The genres.
         /// </value>
-        [J("genres")] public IList<string> Genres { get; set; }
+        [J("genres")] public List<string> Genres { get; set; }
 
         /// <summary>
         /// Gets or sets the tags.
@@ -224,7 +224,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The tags.
         /// </value>
-        [J("tags")] public IList<object> Tags { get; set; }
+        [J("tags")] public List<object> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the added.
@@ -248,6 +248,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The quality profile identifier.
         /// </value>
-        [J("qualityProfileId")] public long QualityProfileId { get; set; }
+        [J("qualityProfileId")] public int QualityProfileId { get; set; }
     }
 }

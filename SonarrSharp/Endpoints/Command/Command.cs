@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.Command
         /// Queries the status of all currently started commands.
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.Command>> GetCommands()
+        public async Task<List<Models.Command>> GetCommands()
         {
             var json = await _sonarrClient.GetJson($"/command");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Command>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Command>>(json, Converter.Settings));
         }
 
         /// <summary>

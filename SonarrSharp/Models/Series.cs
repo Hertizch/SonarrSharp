@@ -16,7 +16,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The TVDB identifier.
         /// </value>
-        [J("tvdbId")] public long TvdbId { get; set; }
+        [J("tvdbId")] public int TvdbId { get; set; }
 
         /// <summary>
         /// Gets or sets the tv rage identifier.
@@ -120,7 +120,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The images.
         /// </value>
-        [J("images")] public IList<Image> Images { get; set; }
+        [J("images")] public List<Image> Images { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the series.
@@ -168,7 +168,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The year.
         /// </value>
-        [J("year")] public long Year { get; set; }
+        [J("year")] public int Year { get; set; }
 
         /// <summary>
         /// Gets or sets the first aired.
@@ -192,7 +192,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The seasons.
         /// </value>
-        [J("seasons")] public IList<Season> Seasons { get; set; }
+        [J("seasons")] public List<Season> Seasons { get; set; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -200,6 +200,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

@@ -87,7 +87,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the language.
@@ -111,7 +111,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public IList<long> EpisodeNumbers { get; set; }
+        [J("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="Release"/> is approved.
@@ -135,7 +135,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The rejections.
         /// </value>
-        [J("rejections")] public IList<string> Rejections { get; set; }
+        [J("rejections")] public List<string> Rejections { get; set; }
 
         /// <summary>
         /// Gets or sets the publish date.

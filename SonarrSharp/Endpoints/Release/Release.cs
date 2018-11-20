@@ -26,10 +26,10 @@ namespace SonarrSharp.Endpoints.Release
         /// </summary>
         /// <param name="episodeId">Episode ID</param>
         /// <returns></returns>
-        public async Task<IList<Models.Release>> GetReleases(int episodeId)
+        public async Task<List<Models.Release>> GetReleases(int episodeId)
         {
             var json = await _sonarrClient.GetJson($"/release");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Release>>(json, Converter.Settings));
         }
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace SonarrSharp.Endpoints.Release
         /// </summary>
         /// <param name="guid">Release GUID</param>
         /// <returns></returns>
-        public async Task<IList<Models.Release>> AddRelease(string guid)
+        public async Task<List<Models.Release>> AddRelease(string guid)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
             {
@@ -45,7 +45,7 @@ namespace SonarrSharp.Endpoints.Release
             });
 
             var json = await _sonarrClient.PostJson($"/release", parameter, "POST");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Release>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Release>>(json, Converter.Settings));
         }
     }
 }

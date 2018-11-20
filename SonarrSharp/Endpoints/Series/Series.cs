@@ -27,10 +27,10 @@ namespace SonarrSharp.Endpoints.Series
         /// </summary>
         /// <param name="includeSeasonImages">if set to <c>true</c> [include season images].</param>
         /// <returns></returns>
-        public async Task<IList<Models.Series>> GetSeries([Optional] bool includeSeasonImages)
+        public async Task<List<Models.Series>> GetSeries([Optional] bool includeSeasonImages)
         {
             var json = await _sonarrClient.GetJson($"/series{(includeSeasonImages ? $"?includeSeasonImages={includeSeasonImages}" : "")}");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.Series>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.Series>>(json, Converter.Settings));
         }
 
         /// <summary>

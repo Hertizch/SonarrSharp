@@ -31,7 +31,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
         /// <param name="protocol">Download protocol</param>
         /// <param name="date">The date.</param>
         /// <returns></returns>
-        public async Task<IList<Models.ReleasePush>> PushRelease(string title, string downloadUrl, Protocol protocol, DateTime date)
+        public async Task<List<Models.ReleasePush>> PushRelease(string title, string downloadUrl, Protocol protocol, DateTime date)
         {
             string parameter = JsonConvert.SerializeObject(new Dictionary<string, object>
             {
@@ -42,7 +42,7 @@ namespace SonarrSharp.Endpoints.ReleasePush
             });
 
             var json = await _sonarrClient.PostJson($"/releasePush", parameter, "POST");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.ReleasePush>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.ReleasePush>>(json, Converter.Settings));
         }
     }
 }

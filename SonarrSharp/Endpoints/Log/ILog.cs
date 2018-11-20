@@ -12,7 +12,7 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.LogFile>> GetLogFiles();
+        Task<List<Models.LogFile>> GetLogFiles();
 
         /// <summary>
         /// Gets the log file.

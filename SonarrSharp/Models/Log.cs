@@ -14,7 +14,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The page.
         /// </value>
-        [J("page")] public long Page { get; set; }
+        [J("page")] public int Page { get; set; }
 
         /// <summary>
         /// Gets or sets the size of the page.
@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The size of the page.
         /// </value>
-        [J("pageSize")] public long PageSize { get; set; }
+        [J("pageSize")] public int PageSize { get; set; }
 
         /// <summary>
         /// Gets or sets the sort key.
@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The total records.
         /// </value>
-        [J("totalRecords")] public long TotalRecords { get; set; }
+        [J("totalRecords")] public int TotalRecords { get; set; }
 
         /// <summary>
         /// Gets or sets the log records.
@@ -54,6 +54,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The log records.
         /// </value>
-        [J("records")] public IList<LogRecord> LogRecords { get; set; }
+        [J("records")] public List<LogRecord> LogRecords { get; set; }
     }
 }

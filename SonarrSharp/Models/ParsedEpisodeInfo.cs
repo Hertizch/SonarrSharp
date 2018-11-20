@@ -46,7 +46,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The season number.
         /// </value>
-        [J("seasonNumber")] public long SeasonNumber { get; set; }
+        [J("seasonNumber")] public int SeasonNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the episode numbers.
@@ -54,7 +54,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The episode numbers.
         /// </value>
-        [J("episodeNumbers")] public IList<long> EpisodeNumbers { get; set; }
+        [J("episodeNumbers")] public List<int> EpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the absolute episode numbers.
@@ -62,7 +62,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The absolute episode numbers.
         /// </value>
-        [J("absoluteEpisodeNumbers")] public IList<object> AbsoluteEpisodeNumbers { get; set; }
+        [J("absoluteEpisodeNumbers")] public List<object> AbsoluteEpisodeNumbers { get; set; }
 
         /// <summary>
         /// Gets or sets the language.

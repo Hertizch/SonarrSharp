@@ -25,10 +25,10 @@ namespace SonarrSharp.Endpoints.QualityDefinition
         /// Returns all quality definitions
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.QualityDefinition>> GetQualityDefinitions()
+        public async Task<List<Models.QualityDefinition>> GetQualityDefinitions()
         {
             var json = await _sonarrClient.GetJson("/qualityDefinition");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.QualityDefinition>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.QualityDefinition>>(json, Converter.Settings));
         }
 
         /// <summary>

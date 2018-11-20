@@ -25,10 +25,10 @@ namespace SonarrSharp.Endpoints.SystemBackup
         /// Returns the list of available backups
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.SystemBackup>> GetSystemBackups()
+        public async Task<List<Models.SystemBackup>> GetSystemBackups()
         {
             var json = await _sonarrClient.GetJson($"/system/backup");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.SystemBackup>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.SystemBackup>>(json, Converter.Settings));
         }
     }
 }

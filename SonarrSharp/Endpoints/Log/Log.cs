@@ -28,10 +28,10 @@ namespace SonarrSharp.Endpoints.Log
         /// Gets the log files.
         /// </summary>
         /// <returns></returns>
-        public async Task<IList<Models.LogFile>> GetLogFiles()
+        public async Task<List<Models.LogFile>> GetLogFiles()
         {
             var json = await _sonarrClient.GetJson("/log/file");
-            return await Task.Run(() => JsonConvert.DeserializeObject<IList<Models.LogFile>>(json, Converter.Settings));
+            return await Task.Run(() => JsonConvert.DeserializeObject<List<Models.LogFile>>(json, Converter.Settings));
         }
 
         /// <summary>

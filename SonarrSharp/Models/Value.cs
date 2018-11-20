@@ -22,7 +22,7 @@ namespace SonarrSharp.Models
         /// <value>
         /// The allowed.
         /// </value>
-        [J("allowed")] public IList<Allowed> Allowed { get; set; }
+        [J("allowed")] public List<Allowed> Allowed { get; set; }
 
         /// <summary>
         /// Gets or sets the cutoff.
@@ -38,6 +38,6 @@ namespace SonarrSharp.Models
         /// <value>
         /// The identifier.
         /// </value>
-        [J("id")] public long Id { get; set; }
+        [J("id")] public int Id { get; set; }
     }
 }

@@ -13,7 +13,7 @@ namespace SonarrSharp.Endpoints.Command
         /// Queries the status of all currently started commands.
         /// </summary>
         /// <returns></returns>
-        Task<IList<Models.Command>> GetCommands();
+        Task<List<Models.Command>> GetCommands();
 
         /// <summary>
         /// Queries the status of a previously started command

@@ -13,7 +13,7 @@ namespace SonarrSharp.Endpoints.Episode
         /// </summary>
         /// <param name="seriesId">Series ID</param>
         /// <returns></returns>
-        Task<IList<Models.Episode>> GetEpisodes(int seriesId);
+        Task<List<Models.Episode>> GetEpisodes(int seriesId);
 
         /// <summary>
         /// Returns the episode with the matching id

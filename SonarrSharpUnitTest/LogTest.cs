@@ -24,6 +24,8 @@ namespace SonarrSharpUnitTest
         {
             var obj = await _sonarrClient.Log.GetLogFile("sonarr.txt");
 
+            Console.WriteLine(obj);
+
             Assert.IsNotNull(obj);
         }
 
