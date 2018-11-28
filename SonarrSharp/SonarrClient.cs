@@ -379,15 +379,14 @@ namespace SonarrSharp
             if (WriteDebug)
                 Debug.WriteLine($"[SonarrSharp] [DEBUG] [SonarrClient.Delete] Endpoint URL: '{endpointUrl}'");
 
-            using (var httpClient = new HttpClient { BaseAddress = new Uri(ApiUrl) })
+            using (var httpClient = new HttpClient())
             {
                 httpClient.DefaultRequestHeaders.Add("X-Api-Key", ApiKey);
-                httpClient.DefaultRequestHeaders.Add("Content-Type", "application/json");
                 httpClient.DefaultRequestHeaders.Add("User-Agent", $"{Assembly.GetExecutingAssembly().GetName().Name.Replace(" ", ".")}.v{Assembly.GetExecutingAssembly().GetName().Version}");
 
                 try
                 {
-                    await httpClient.DeleteAsync(endpointUrl);
+                    await httpClient.DeleteAsync(ApiUrl + endpointUrl);
                 }
                 catch (Exception ex)
                 {

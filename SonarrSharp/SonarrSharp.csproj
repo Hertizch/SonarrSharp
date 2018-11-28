@@ -7,12 +7,12 @@
     <Description>C# Sonarr API wrapper</Description>
     <Copyright>Hertizch</Copyright>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.0</Version>
+    <Version>1.2.1</Version>
     <PackageProjectUrl>https://github.com/Hertizch/SonarrSharp</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/Hertizch/SonarrSharp/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/Hertizch/SonarrSharp</RepositoryUrl>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
-    <FileVersion>1.2.0.0</FileVersion>
+    <AssemblyVersion>1.2.1.0</AssemblyVersion>
+    <FileVersion>1.2.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 
 </Project>
