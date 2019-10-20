@@ -1,6 +1,8 @@
 # SonarrSharp
 C# [Sonarr](https://sonarr.tv/) API wrapper.
 
+### This project is atm. not actively developed!
+
 ## Compatibility
 Written as a .NET Standard library, so should be compatible with .NET framework, .NET core and Xamarin.
 
